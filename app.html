@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>MisaContigo | Fe Siempre Cerca</title>
+    <!-- iOS PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MisaContigo">
+    <link rel="apple-touch-icon" href="icon-512.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+        <h1>MisaContigo</h1>
+        <span id="current-date" class="date-badge">Hoy</span>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="app-content">
+        <!-- TAB 1: MISA / HOME -->
+        <div id="tab-misa" class="tab-content active">
+            <div class="banner-card">
+                <h2>Liturgia y Oración Diaria</h2>
+                <p>Tu guía espiritual y compañera en todo momento.</p>
+            </div>
+
+            <!-- Daily Mass / Liturgy Hero Section -->
+            <div class="misa-card" style="background: var(--surface); border-left: 4px solid var(--primary);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <h3 style="font-size: 1.05rem; color: var(--primary);">⛪ Santa Misa del Día</h3>
+                    <span style="font-size: 0.75rem; background: var(--bg); padding: 0.2rem 0.5rem; border-radius: 6px; font-weight: 600; color: var(--primary);">Misal CEM</span>
+                </div>
+                <p id="daily-liturgy-text" style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 0.75rem;">Cargando lecturas litúrgicas oficiales...</p>
+                <button class="btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;" onclick="openMassGuideModal()">Ver Orden de la Misa</button>
+            </div>
+
+            <!-- Spiritual Streak Card -->
+            <div class="misa-card streak-card">
+                <span class="emoji-icon">🔥</span>
+                <div style="flex: 1;">
+                    <h3 id="streak-title" style="color: var(--primary); font-size: 1rem; font-weight: 700;">5 Días en Gracia</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">¡Excelente hábito de oración continua!</p>
+                </div>
+                <span style="font-size: 1.2rem;">⭐</span>
+            </div>
+
+            <!-- Palabra de Vida Card -->
+            <div class="misa-card" style="border: 2px solid var(--primary);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <h3 style="font-size: 1rem; color: var(--primary);">📖 Palabra de Vida</h3>
+                    <button class="btn-outline" style="padding: 0.25rem 0.6rem; font-size: 0.8rem; width: auto;" onclick="loadRandomQuote()">🔄 Otra</button>
+                </div>
+                <p id="palabra-vida-text" style="font-size: 0.9rem; font-style: italic; margin-bottom: 0.75rem; color: var(--text-main);">Cargando cita...</p>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="sharePalabraVida()">📤 Compartir</button>
+                    <button class="btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="speakPalabraVida()">🔊 Escuchar</button>
+                </div>
+            </div>
+
+            <!-- Pilgrim Path Card -->
+            <div class="misa-card" style="background: rgba(57, 73, 171, 0.08); cursor: pointer;" onclick="openPilgrimModal()">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div>
+                        <h3 style="font-size: 1rem; color: var(--primary);">Mi Camino del Peregrino</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Ver tu nivel, puntos y frutos espirituales</p>
+                    </div>
+                    <span style="font-size: 1.5rem;">🏆</span>
+                </div>
+            </div>
+
+            <h3 class="section-title">Tiempos y Fiestas de México</h3>
+            <div id="seasonal-guides-container">
+                <p style="color: var(--text-muted);">Cargando guías estacionales...</p>
+            </div>
+
+            <h3 class="section-title">Santoral Mexicano</h3>
+            <div id="saints-container">
+                <p style="color: var(--text-muted);">Cargando santoral...</p>
+            </div>
+        </div>
+
+        <!-- TAB 2: CONFESA -->
+        <div id="tab-confesa" class="tab-content">
+            <h2 class="tab-title">Confesión y Reconciliación</h2>
+            <p class="tab-subtitle">Guía espiritual para preparar tu corazón para el sacramento.</p>
+
+            <div class="misa-card">
+                <h3 style="color: var(--primary); margin-bottom: 0.5rem;">🙏 Examen de Conciencia</h3>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem; color: var(--text-muted);">Preguntas basadas en los mandamientos para reflexionar en paz ante Dios.</p>
+                <div id="confession-questions">
+                    <div class="confession-item">• ¿He puesto a Dios en el primer lugar de mi vida o me han dominado las cosas materiales?</div>
+                    <div class="confession-item">• ¿He guardado el domingo asistiendo a la Misa dominical con devoción?</div>
+                    <div class="confession-item">• ¿He tratado a mis padres y prójimo con respeto, paciencia y amor?</div>
+                    <div class="confession-item">• ¿He mantenido la pureza en mis pensamientos, palabras y obras?</div>
+                    <div class="confession-item">• ¿He tomado lo ajeno o actuado con injusticia en mi trabajo?</div>
+                    <div class="confession-item">• ¿He dicho mentiras o dañado la reputación de otros?</div>
+                </div>
+            </div>
+
+            <div class="misa-card" style="background: var(--primary); color: white;">
+                <h3>📖 Rito de la Confesión</h3>
+                <p style="font-size: 0.85rem; opacity: 0.9; margin: 0.5rem 0 1rem;">1. Saluda al sacerdote: "Ave María Purísima".<br>2. Acusa tus pecados con sinceridad.<br>3. Escucha la penitencia y consejo.<br>4. Reza el Acto de Contrición.</p>
+                <button class="btn-primary" style="background: white; color: var(--primary);" onclick="speakText('Señor mío Jesucristo, Dios y Hombre verdadero...')">🔊 Escuchar Acto de Contrición</button>
+            </div>
+        </div>
+
+        <!-- TAB 3: ORAR -->
+        <div id="tab-orar" class="tab-content">
+            <h2 class="tab-title">Oraciones y Rosario</h2>
+            <p class="tab-subtitle">Encuentra paz en el diálogo con Dios.</p>
+
+            <input type="text" id="prayer-search" class="input-field" placeholder="Buscar plegaria...">
+
+            <!-- Rosary Hero Card -->
+            <div class="misa-card" style="background: var(--primary); color: white;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;">Santo Rosario</h3>
+                        <p style="font-size: 0.8rem; opacity: 0.9;">Acompaña a nuestra Madre en su meditación.</p>
+                    </div>
+                    <button class="btn-primary" style="background: white; color: var(--primary); width: auto; padding: 0.5rem 1.25rem;" onclick="startRosary()">Rezar</button>
+                </div>
+            </div>
+
+            <div id="prayers-container">
+                <p style="color: var(--text-muted);">Cargando oraciones...</p>
+            </div>
+        </div>
+
+        <!-- TAB 4: FAMILIA (Círculo Familiar) -->
+        <div id="tab-familia" class="tab-content">
+            <!-- Family Setup View (Shown when no family code is joined) -->
+            <div id="family-setup-view">
+                <div style="text-align: center; padding: 3rem 1rem;">
+                    <span style="font-size: 4rem;">👥</span>
+                    <h2 style="font-size: 1.4rem; color: var(--primary); margin: 1rem 0 0.5rem;">Conecta a tu Familia</h2>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.6;">Únanse en oración compartiendo intenciones y encendiendo velas virtuales en tiempo real.</p>
+                    <button class="btn-primary" style="margin-bottom: 1rem;" onclick="createFamilyGroup()">Crear Grupo Familiar</button>
+                    <button class="btn-outline" onclick="joinFamilyPrompt()">Unirse con Código</button>
+                </div>
+            </div>
+
+            <!-- Family Collaborative View (Shown when family code is active) -->
+            <div id="family-collaborative-view" style="display: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <div>
+                        <h2 class="tab-title" style="margin-bottom: 0;">Círculo Familiar</h2>
+                        <span id="family-code-badge" style="font-size: 0.75rem; color: var(--primary); font-weight: 700;">Código: FAM-XXXX</span>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn-primary" style="width: auto; padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="openAddIntentionModal()">+ Nueva</button>
+                        <button class="btn-outline" style="width: auto; padding: 0.4rem 0.6rem; font-size: 0.8rem; color: #C62828; border-color: #C62828;" onclick="leaveFamilyGroup()" title="Salir del grupo">🚪</button>
+                    </div>
+                </div>
+                <p class="tab-subtitle">Intenciones de oración compartidas en tiempo real.</p>
+                <div id="intentions-container"></div>
+            </div>
+        </div>
+
+        <!-- TAB 5: APP / AJUSTES -->
+        <div id="tab-app" class="tab-content">
+            <h2 class="tab-title">Acerca de la App</h2>
+            <p class="tab-subtitle">Configuración y espiritualidad.</p>
+
+            <div class="misa-card">
+                <h3 style="color: var(--primary); margin-bottom: 0.75rem;">🎨 Color Litúrgico Vivo</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">La app adopta el color del tiempo litúrgico actual.</p>
+                <div style="display: flex; gap: 1rem;">
+                    <button class="theme-btn" data-theme="Green" title="Verde" style="width: 40px; height: 40px; border-radius: 50%; background: #2E7D32; border: none; cursor: pointer;"></button>
+                    <button class="theme-btn" data-theme="White" title="Blanco" style="width: 40px; height: 40px; border-radius: 50%; background: #78909C; border: none; cursor: pointer;"></button>
+                    <button class="theme-btn" data-theme="Red" title="Rojo" style="width: 40px; height: 40px; border-radius: 50%; background: #C62828; border: none; cursor: pointer;"></button>
+                    <button class="theme-btn" data-theme="Purple" title="Morado" style="width: 40px; height: 40px; border-radius: 50%; background: #6A1B9A; border: none; cursor: pointer;"></button>
+                </div>
+            </div>
+
+            <div class="misa-card">
+                <h3 style="color: var(--primary); margin-bottom: 0.5rem;">MisaContigo v2.8</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Creado por Diego Torres Barragán. Plataforma católica de evangelización.</p>
+                <p style="font-size: 0.8rem; font-style: italic; color: var(--primary);">"Fe siempre cerca."</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation (Exact 5 tabs matching Android MainActivity) -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-tab="tab-misa">
+            <span>⛪</span>Misa
+        </button>
+        <button class="nav-item" data-tab="tab-confesa">
+            <span>🔑</span>Confesa
+        </button>
+        <button class="nav-item" data-tab="tab-orar">
+            <span>🙏</span>Orar
+        </button>
+        <button class="nav-item" data-tab="tab-familia">
+            <span>👥</span>Familia
+        </button>
+        <button class="nav-item" data-tab="tab-app">
+            <span>ℹ️</span>App
+        </button>
+    </nav>
+</div>
+
+<!-- Modal Viewer -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">×</button>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
