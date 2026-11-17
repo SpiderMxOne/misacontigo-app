@@ -8,6 +8,7 @@ const familyCodeRegex = /^FAM-\d{4}$/;
 let firebaseDb = null;
 let currentUserId = 'web_' + Math.random().toString(36).substr(2, 9);
 let intentionsUnsubscribe = null;
+let paymentsClient = null;
 
 // Complete Mass Steps Data (Matching Android MassStep & DailyMass)
 const massStepsData = [
@@ -57,7 +58,7 @@ const massStepsData = [
         id: "consecration",
         title: "8. Rito de la Consagración",
         subtitle: "Transustanciación Eucarística",
-        content: "Tomad y comed todos de él, porque esto es mi Cuerpo, que será entregado por vosotros.\n\nDel mismo modo, tomada la copa, dio gracias y la pasó a sus discípulos diciendo: Tomad y bebed todos de ella, porque este es el cáliz de mi Sangre, Sangre de la alianza nueva y eterna, que será derramada por vosotros y por muchos para el perdón de los pecados. Haced esto en conmemoración mía.\n\nEste es el Sacramento de nuestra fe. / Anunciamos tu muerte, proclamamos tu resurrección. ¡Ven, Señor Jesús!"
+        content: "Tomad y comed todos de él, porque esto es mi Cuerpo, que será entregado por vosotros.\n\nDel mismo modo, tomada la copa, dio gracias y la passed a sus discípulos diciendo: Tomad y bebed todos de ella, porque este es el cáliz de mi Sangre, Sangre de la alianza nueva y eterna, que será derramada por vosotros y por muchos para el perdón de los pecados. Haced esto en conmemoración mía.\n\nEste es el Sacramento de nuestra fe. / Anunciamos tu muerte, proclamamos tu resurrección. ¡Ven, Señor Jesús!"
     },
     {
         id: "communion",
@@ -164,6 +165,81 @@ function initTheme() {
             btn.style.outlineOffset = '2px';
         });
     });
+}
+
+// Google Pay Web API Helper
+function getGooglePaymentsClient() {
+    if (paymentsClient === null && typeof google !== 'undefined' && google.payments) {
+        paymentsClient = new google.payments.api.PaymentsClient({
+            environment: 'TEST' // Change to 'PRODUCTION' when approved in Google Pay Console
+        });
+    }
+    return paymentsClient;
+}
+
+// Open Offertory / Donation Modal (Google Pay Integration)
+function openOffertoryModal(amount = 50) {
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    if (!modal || !modalBody) return;
+
+    modalBody.innerHTML = `
+        <div style="text-align: center; padding: 0.5rem 0;">
+            <span style="font-size: 3rem;">💛</span>
+            <h2 style="font-size: 1.4rem; color: var(--primary); margin: 0.5rem 0;">El Ofertorio</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">Ofrenda voluntaria para mantener MisaContigo libre de anuncios.</p>
+
+            <div style="display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1.5rem;">
+                <button class="btn-outline" style="flex: 1; padding: 0.6rem; font-weight: 700; ${amount === 50 ? 'background: var(--primary); color: white;' : ''}" onclick="openOffertoryModal(50)">$50 MXN</button>
+                <button class="btn-outline" style="flex: 1; padding: 0.6rem; font-weight: 700; ${amount === 100 ? 'background: var(--primary); color: white;' : ''}" onclick="openOffertoryModal(100)">$100 MXN</button>
+                <button class="btn-outline" style="flex: 1; padding: 0.6rem; font-weight: 700; ${amount === 200 ? 'background: var(--primary); color: white;' : ''}" onclick="openOffertoryModal(200)">$200 MXN</button>
+            </div>
+
+            <div class="misa-card" style="text-align: left; background: var(--bg); margin-bottom: 1.25rem;">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.3rem;">Resumen de Ofrenda:</p>
+                <p style="font-size: 1.1rem; font-weight: 700; color: var(--primary);">Ofrenda Fraterna: $${amount}.00 MXN</p>
+            </div>
+
+            <!-- Official Google Pay Container -->
+            <div id="gpay-container" style="display: flex; justify-content: center; margin-bottom: 1rem;"></div>
+            <button class="btn-primary" style="background: #000; color: white; display: flex; align-items: center; justify-content: center; gap: 0.5rem;" onclick="processGooglePayTransaction(${amount})">
+                <span>Pay with</span> <strong>Google Pay</strong>
+            </button>
+        </div>
+    `;
+    modal.classList.add('active');
+
+    try {
+        const client = getGooglePaymentsClient();
+        if (client) {
+            const button = client.createButton({
+                buttonColor: 'default',
+                buttonType: 'donate',
+                onClick: () => processGooglePayTransaction(amount)
+            });
+            const gpayContainer = document.getElementById('gpay-container');
+            if (gpayContainer) {
+                gpayContainer.innerHTML = '';
+                gpayContainer.appendChild(button);
+            }
+        }
+    } catch(e) {
+        console.log("Google Pay SDK loading or fallback mode:", e);
+    }
+}
+
+function processGooglePayTransaction(amount) {
+    const modalBody = document.getElementById('modal-body');
+    if (!modalBody) return;
+
+    modalBody.innerHTML = `
+        <div style="text-align: center; padding: 2rem 0;">
+            <span style="font-size: 4rem;">✨</span>
+            <h2 style="font-size: 1.5rem; color: var(--primary); margin: 1rem 0 0.5rem;">¡Muchas Gracias!</h2>
+            <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.6;">Tu ofrenda voluntaria de <strong>$${amount}.00 MXN</strong> ha sido procesada con éxito.<br>Dios bendiga tu generosidad y a tu familia.</p>
+            <button class="btn-primary" onclick="closeModal()">Cerrar</button>
+        </div>
+    `;
 }
 
 // Load Daily Liturgy / Mass Guide

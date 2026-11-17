@@ -11,7 +11,8 @@
     <link rel="apple-touch-icon" href="icon-512.png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
-    <!-- Firebase SDKs for Real-time Family Circle Sync -->
+    <!-- Google Pay Web API & Firebase SDKs -->
+    <script src="https://pay.google.com/gp/p/js/pay.js" async></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
@@ -25,7 +26,10 @@
     <!-- Header -->
     <header class="app-header">
         <h1>MisaContigo</h1>
-        <span id="current-date" class="date-badge">Hoy</span>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <button class="btn-outline" style="padding: 0.25rem 0.6rem; font-size: 0.75rem; width: auto; border-color: #D4AF37; color: #D4AF37;" onclick="openOffertoryModal()">💛 Ofrenda</button>
+            <span id="current-date" class="date-badge">Hoy</span>
+        </div>
     </header>
 
     <!-- Main Content Area -->
@@ -36,6 +40,17 @@
                 <h2>Liturgia y Oración Diaria</h2>
                 <p>Tu guía espiritual y compañera en todo momento.</p>
             </div>
+
+            <!-- El Ofertorio Card -->
+            <button class="misa-card" style="background: linear-gradient(135deg, #1A237E, #3949AB); color: white; width: 100%; border: none; cursor: pointer; margin-bottom: 1rem;" onclick="openOffertoryModal()" aria-label="El Ofertorio - Donación voluntaria">
+                <span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                    <span style="text-align: left;">
+                        <span style="display: block; font-size: 1.05rem; font-weight: 700; color: #FFF; margin-bottom: 0.2rem;">💛 El Ofertorio</span>
+                        <span style="display: block; font-size: 0.8rem; opacity: 0.9;">Apoya MisaContigo con tu ofrenda voluntaria.</span>
+                    </span>
+                    <span style="font-size: 0.8rem; background: white; color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 10px; font-weight: 700;">Ofrendar</span>
+                </span>
+            </button>
 
             <!-- Daily Mass / Liturgy Hero Section -->
             <div class="misa-card" style="background: var(--surface); border-left: 4px solid var(--primary);">
