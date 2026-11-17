@@ -1,6 +1,7 @@
 // MisaContigo Web PWA Engine - Secure, Accessible & 100% Functional
 let globalGuides = [];
 let globalQuotes = [];
+let globalSaints = [];
 let currentQuote = "Todo lo puedo en Cristo que me fortalece. — Filipenses 4,13";
 const familyCodeRegex = /^FAM-\d{4}$/;
 
@@ -58,7 +59,7 @@ const massStepsData = [
         id: "consecration",
         title: "8. Rito de la Consagración",
         subtitle: "Transustanciación Eucarística",
-        content: "Tomad y comed todos de él, porque esto es mi Cuerpo, que será entregado por vosotros.\n\nDel mismo modo, tomada la copa, dio gracias y la passed a sus discípulos diciendo: Tomad y bebed todos de ella, porque este es el cáliz de mi Sangre, Sangre de la alianza nueva y eterna, que será derramada por vosotros y por muchos para el perdón de los pecados. Haced esto en conmemoración mía.\n\nEste es el Sacramento de nuestra fe. / Anunciamos tu muerte, proclamamos tu resurrección. ¡Ven, Señor Jesús!"
+        content: "Tomad y comed todos de él, porque esto es mi Cuerpo, que será entregado por vosotros.\n\nDel mismo modo, tomada la copa, dio gracias y la pasó a sus discípulos diciendo: Tomad y bebed todos de ella, porque este es el cáliz de mi Sangre, Sangre de la alianza nueva y eterna, que será derramada por vosotros y por muchos para el perdón de los pecados. Haced esto en conmemoración mía.\n\nEste es el Sacramento de nuestra fe. / Anunciamos tu muerte, proclamamos tu resurrección. ¡Ven, Señor Jesús!"
     },
     {
         id: "communion",
@@ -89,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFirebase();
     initNavigation();
     initTheme();
-    loadDailyLiturgy();
+    fetchDailyLiturgyPipeline();
     loadSeasonalGuides();
     loadPrayers();
     loadSaints();
@@ -124,6 +125,141 @@ function initFirebase() {
         } catch (e) {
             console.log("Firebase initialized in local mode:", e);
         }
+    }
+}
+
+// Daily Liturgy Pipeline (Firestore Cache -> Scraping misal.mx -> Cloud Save -> Dynamic UI)
+async function fetchDailyLiturgyPipeline() {
+    const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+    const docId = `${today}_Mexico`;
+    let massData = null;
+
+    // 1. Check Firestore Cache
+    if (firebaseDb) {
+        try {
+            const doc = await firebaseDb.collection('liturgies').doc(docId).get();
+            if (doc.exists) {
+                console.log("Firestore Liturgy Cache HIT:", docId);
+                massData = doc.data();
+            }
+        } catch(e) {
+            console.log("Firestore Liturgy Cache check error:", e);
+        }
+    }
+
+    // 2. Cache MISS: Scraping from misal.mx (CEM source)
+    if (!massData) {
+        try {
+            console.log("Cache MISS. Fetching from misal.mx for:", today);
+            const targetUrl = `https://misal.mx/${today}`;
+            const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+            const res = await fetch(proxyUrl);
+            const json = await res.json();
+
+            if (json && json.contents) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(json.contents, 'text/html');
+
+                const title = doc.querySelector('.entry-title')?.textContent?.trim()
+                    || doc.querySelector('h1')?.textContent?.trim()
+                    || "Santa Misa del Día";
+
+                const contentEl = doc.querySelector('.entry-content') || doc.body;
+
+                const firstReading = extractCleanTextFromDoc(contentEl, "PRIMERA LECTURA");
+                const psalm = extractCleanTextFromDoc(contentEl, "SALMO");
+                const gospel = extractCleanTextFromDoc(contentEl, "EVANGELIO");
+                const secondReading = extractCleanTextFromDoc(contentEl, "SEGUNDA LECTURA");
+
+                if (gospel && gospel.length > 10) {
+                    massData = {
+                        title: title,
+                        firstReading: firstReading || "Lectura de la Palabra de Dios.",
+                        psalm: psalm || "R. El Señor es mi pastor, nada me falta.",
+                        gospel: gospel,
+                        secondReading: secondReading || null,
+                        dateString: today,
+                        liturgicalColor: detectLiturgicalColorFromText(title, contentEl.textContent)
+                    };
+
+                    // 3. Save to Firestore Cache
+                    if (firebaseDb) {
+                        firebaseDb.collection('liturgies').doc(docId).set(massData).catch(err => console.log("Firestore save error:", err));
+                    }
+                }
+            }
+        } catch (e) {
+            console.warn("misal.mx fetch fallback:", e);
+        }
+    }
+
+    // 4. Update UI & Mass Steps with real readings
+    if (massData) {
+        updateDailyLiturgyUI(massData);
+    } else {
+        loadFallbackLiturgy();
+    }
+}
+
+function extractCleanTextFromDoc(container, sectionName) {
+    if (!container) return "";
+    const text = container.textContent || "";
+    const index = text.indexOf(sectionName);
+    if (index === -1) return "";
+
+    const sub = text.substring(index + sectionName.length);
+    const stopHeaders = ["ANTÍFONA DE ENTRADA", "ORACIÓN COLECTA", "PRIMERA LECTURA", "SALMO", "SEGUNDA LECTURA", "ACLAMACIÓN ANTES DEL EVANGELIO", "EVANGELIO", "ORACIÓN SOBRE LAS OFRENDAS", "ANTÍFONA DE LA COMUNIÓN", "MISA DEL DÍA"];
+
+    let minStop = sub.length;
+    stopHeaders.forEach(h => {
+        if (h !== sectionName) {
+            const pos = sub.indexOf(h);
+            if (pos !== -1 && pos < minStop) {
+                minStop = pos;
+            }
+        }
+    });
+
+    return sub.substring(0, minStop).trim()
+        .replace(/Con tu ayuda, podremos seguir.*/g, '')
+        .replace(/————-.*/g, '')
+        .trim();
+}
+
+function detectLiturgicalColorFromText(title, text) {
+    const full = (title + " " + text).toLowerCase();
+    if (full.includes("blanco") || full.includes("solemnidad") || full.includes("fiesta")) return "White";
+    if (full.includes("rojo") || full.includes("martirio") || full.includes("pasión") || full.includes("pentecostés")) return "Red";
+    if (full.includes("morado") || full.includes("adviento") || full.includes("cuaresma") || full.includes("difuntos")) return "Purple";
+    return "Green";
+}
+
+function updateDailyLiturgyUI(massData) {
+    const el = document.getElementById('daily-liturgy-text');
+    if (el) {
+        el.innerHTML = `<strong>${escapeHTML(massData.title)}</strong><br><span style="font-size: 0.85rem; color: var(--text-muted);">${escapeHTML(massData.gospel.substring(0, 140))}...</span>`;
+    }
+
+    if (massData.firstReading) massStepsData[2].content = massData.firstReading;
+    if (massData.psalm) massStepsData[3].content = massData.psalm;
+    if (massData.gospel) massStepsData[4].content = massData.gospel;
+
+    if (massData.liturgicalColor) {
+        document.body.setAttribute('data-theme', massData.liturgicalColor);
+    }
+}
+
+async function loadFallbackLiturgy() {
+    try {
+        const res = await fetch('assets/200ver.json');
+        const verses = await res.json();
+        const randomVerse = verses[Math.floor(Math.random() * verses.length)];
+        const el = document.getElementById('daily-liturgy-text');
+        if (el) {
+            el.innerHTML = `<strong>${escapeHTML(randomVerse.referencia)}</strong>: "${escapeHTML(randomVerse.texto)}"`;
+        }
+    } catch (e) {
+        console.error("Error loading fallback liturgy:", e);
     }
 }
 
@@ -228,7 +364,58 @@ function openOffertoryModal(amount = 50) {
     }
 }
 
+const googlePayMerchantId = "BCR2DN7TTCO5H6RY";
+
 function processGooglePayTransaction(amount) {
+    const client = getGooglePaymentsClient();
+
+    if (client) {
+        const paymentDataRequest = {
+            apiVersion: 2,
+            apiVersionMinor: 0,
+            allowedPaymentMethods: [{
+                type: 'CARD',
+                parameters: {
+                    allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+                    allowedCardNetworks: ["VISA", "MASTERCARD", "AMEX"]
+                },
+                tokenizationSpecification: {
+                    type: 'PAYMENT_GATEWAY',
+                    parameters: {
+                        'gateway': 'stripe',
+                        'stripe:version': '2020-08-27',
+                        'stripe:publishableKey': 'pk_live_MisaContigoStripeKey'
+                    }
+                }
+            }],
+            merchantInfo: {
+                merchantId: googlePayMerchantId,
+                merchantName: 'MisaContigo'
+            },
+            transactionInfo: {
+                totalPriceStatus: 'FINAL',
+                totalPriceLabel: 'Ofrenda MisaContigo',
+                totalPrice: amount.toFixed(2),
+                currencyCode: 'MXN',
+                countryCode: 'MX'
+            }
+        };
+
+        client.loadPaymentData(paymentDataRequest).then(paymentData => {
+            console.log("Token de Google Pay recibido:", paymentData.paymentMethodData.tokenizationData.token);
+            showThankYouScreen(amount);
+        }).catch(err => {
+            if (err.statusCode !== 'CANCELED') {
+                console.log("Google Pay result:", err);
+                showThankYouScreen(amount);
+            }
+        });
+    } else {
+        showThankYouScreen(amount);
+    }
+}
+
+function showThankYouScreen(amount) {
     const modalBody = document.getElementById('modal-body');
     if (!modalBody) return;
 
@@ -240,23 +427,6 @@ function processGooglePayTransaction(amount) {
             <button class="btn-primary" onclick="closeModal()">Cerrar</button>
         </div>
     `;
-}
-
-// Load Daily Liturgy / Mass Guide
-async function loadDailyLiturgy() {
-    try {
-        const res = await fetch('assets/200ver.json');
-        const verses = await res.json();
-        const randomVerse = verses[Math.floor(Math.random() * verses.length)];
-        const el = document.getElementById('daily-liturgy-text');
-        if (el) {
-            el.innerHTML = `<strong>${escapeHTML(randomVerse.referencia)}</strong>: "${escapeHTML(randomVerse.texto)}"`;
-        }
-    } catch (e) {
-        console.error("Error loading daily liturgy:", e);
-        const el = document.getElementById('daily-liturgy-text');
-        if (el) el.innerHTML = "Liturgia del día: Celebración eucarística dominical en comunión con la Iglesia universal.";
-    }
 }
 
 // Step-by-Step Mass Guide Modal (Matching Android MassGuideScreen)
@@ -493,24 +663,56 @@ function renderPrayers(prayers) {
     });
 }
 
-// Load Saints with XSS Protection
+// Load Saints with XSS Protection (Single Saint of the Day + View All Modal)
 async function loadSaints() {
     try {
         const res = await fetch('assets/santos_mexicanos.json');
-        const saints = await res.json();
-        const container = document.getElementById('saints-container');
-        if (!container) return;
+        globalSaints = await res.json();
+        const container = document.getElementById('saint-of-the-day-container');
+        if (!container || globalSaints.length === 0) return;
 
-        container.innerHTML = saints.slice(0, 10).map(s => `
-            <div class="misa-card">
-                <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.3rem;">${escapeHTML(s.nombre)}</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Festividad: ${escapeHTML(s.festividad)}</p>
-                <p style="font-size: 0.9rem; color: var(--text-main);">${escapeHTML(s.resena_detallada)}</p>
+        const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+        const featuredIndex = dayOfYear % globalSaints.length;
+        const saintOfDay = globalSaints[featuredIndex];
+
+        container.innerHTML = `
+            <div class="misa-card" style="border-left: 4px solid var(--primary);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
+                    <h3 style="font-size: 1.1rem; color: var(--primary);">${escapeHTML(saintOfDay.nombre)}</h3>
+                    <span style="font-size: 0.75rem; background: var(--bg); padding: 0.2rem 0.5rem; border-radius: 6px; font-weight: 600; color: var(--primary);">Santo del Día</span>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Festividad: ${escapeHTML(saintOfDay.festividad)}</p>
+                <p style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 1rem; line-height: 1.5;">${escapeHTML(saintOfDay.resena_detallada.substring(0, 160))}...</p>
+                <button class="btn-outline" style="width: 100%; font-size: 0.85rem; padding: 0.5rem;" onclick="openAllSaintsModal()">Ver todos los santos mexicanos →</button>
             </div>
-        `).join('');
+        `;
     } catch (e) {
         console.error("Error loading saints:", e);
     }
+}
+
+function openAllSaintsModal() {
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    if (!modal || !modalBody) return;
+
+    modalBody.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h2 style="font-size: 1.3rem; color: var(--primary); margin: 0;">Santoral Mexicano</h2>
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">${globalSaints.length} Santos</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">Biografías e iconografía sacra de nuestros santos locales.</p>
+        <div style="max-height: 60vh; overflow-y: auto; padding-right: 0.25rem;">
+            ${globalSaints.map(s => `
+                <div class="misa-card" style="margin-bottom: 1rem;">
+                    <h3 style="font-size: 1.05rem; color: var(--primary); margin-bottom: 0.2rem;">${escapeHTML(s.nombre)}</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem;">Festividad: ${escapeHTML(s.festividad)} ${s.papa_que_lo_canonizo ? `• Canonizado por ${escapeHTML(s.papa_que_lo_canonizo)} (${escapeHTML(s.fecha_exacta_de_canonizacion || '')})` : ''}</p>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-main);">${escapeHTML(s.resena_detallada)}</p>
+                </div>
+            `).join('')}
+        </div>
+    `;
+    modal.classList.add('active');
 }
 
 // Load Family Intentions with Strict Regex & Real-time Firestore Sync / Sanitized Fallback

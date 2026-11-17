@@ -41,17 +41,6 @@
                 <p>Tu guía espiritual y compañera en todo momento.</p>
             </div>
 
-            <!-- El Ofertorio Card -->
-            <button class="misa-card" style="background: linear-gradient(135deg, #1A237E, #3949AB); color: white; width: 100%; border: none; cursor: pointer; margin-bottom: 1rem;" onclick="openOffertoryModal()" aria-label="El Ofertorio - Donación voluntaria">
-                <span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                    <span style="text-align: left;">
-                        <span style="display: block; font-size: 1.05rem; font-weight: 700; color: #FFF; margin-bottom: 0.2rem;">💛 El Ofertorio</span>
-                        <span style="display: block; font-size: 0.8rem; opacity: 0.9;">Apoya MisaContigo con tu ofrenda voluntaria.</span>
-                    </span>
-                    <span style="font-size: 0.8rem; background: white; color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 10px; font-weight: 700;">Ofrendar</span>
-                </span>
-            </button>
-
             <!-- Daily Mass / Liturgy Hero Section -->
             <div class="misa-card" style="background: var(--surface); border-left: 4px solid var(--primary);">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
@@ -96,14 +85,9 @@
                 </span>
             </button>
 
-            <h3 class="section-title">Tiempos y Fiestas de México</h3>
-            <div id="seasonal-guides-container">
-                <p style="color: var(--text-muted);">Cargando guías estacionales...</p>
-            </div>
-
             <h3 class="section-title">Santoral Mexicano</h3>
-            <div id="saints-container">
-                <p style="color: var(--text-muted);">Cargando santoral...</p>
+            <div id="saint-of-the-day-container">
+                <p style="color: var(--text-muted);">Cargando Santo del Día...</p>
             </div>
         </div>
 
@@ -150,6 +134,12 @@
                 </div>
             </div>
 
+            <!-- Tiempos y Fiestas de México -->
+            <h3 class="section-title">Tiempos y Fiestas de México</h3>
+            <div id="seasonal-guides-container">
+                <p style="color: var(--text-muted);">Cargando guías estacionales...</p>
+            </div>
+
             <div id="prayers-container">
                 <p style="color: var(--text-muted);">Cargando oraciones...</p>
             </div>
@@ -189,6 +179,17 @@
         <div id="tab-app" class="tab-content">
             <h2 class="tab-title">Acerca de la App</h2>
             <p class="tab-subtitle">Configuración y espiritualidad.</p>
+
+            <!-- El Ofertorio Card -->
+            <button class="misa-card" style="background: linear-gradient(135deg, #1A237E, #3949AB); color: white; width: 100%; border: none; cursor: pointer; margin-bottom: 1rem;" onclick="openOffertoryModal()" aria-label="El Ofertorio - Donación voluntaria">
+                <span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                    <span style="text-align: left;">
+                        <span style="display: block; font-size: 1.05rem; font-weight: 700; color: #FFF; margin-bottom: 0.2rem;">💛 El Ofertorio</span>
+                        <span style="display: block; font-size: 0.8rem; opacity: 0.9;">Apoya MisaContigo con tu ofrenda voluntaria.</span>
+                    </span>
+                    <span style="font-size: 0.8rem; background: white; color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 10px; font-weight: 700;">Ofrendar</span>
+                </span>
+            </button>
 
             <div class="misa-card">
                 <h3 style="color: var(--primary); margin-bottom: 0.75rem;">🎨 Color Litúrgico Vivo</h3>
