@@ -1,0 +1,113 @@
+{
+  "guias": [
+    {
+      "id": "navidad",
+      "titulo": "Navidad, Adviento y Posadas",
+      "subtitulo": "Del 16 de Diciembre al 6 de Enero",
+      "mesInicio": 12,
+      "diaInicio": 1,
+      "mesFin": 1,
+      "diaFin": 9,
+      "descripcion": "Guía tradicional para vivir el Adviento, las Posadas navideñas, la Nochebuena y la llegada de los Reyes Magos en familia.",
+      "icono": "⭐",
+      "secciones": [
+        {
+          "titulo": "El Camino a Belén: Corona de Adviento",
+          "contenido": "El Adviento es el tiempo de espera gozosa y conversión para recibir al Salvador. Cada semana se enciende una vela de la Corona de Adviento:\n\n1. Primera Vela (Morada): Vigilia y esperanza. Oración: «Señor Jesús, despierta en nosotros el deseo de prepararte el camino con obras de amor.»\n2. Segunda Vela (Morada): Conversión y escucha del Precursor. Oración: «Señor, enderezamos nuestros senderos con tu gracia.»\n3. Tercera Vela (Rosa - Domingo Gaudete): Alegría cercana del Nacimiento. Oración: «Señor, llena nuestros corazones de gozo inefable.»\n4. Cuarta Vela (Morada): Cumplimiento de las profecías con María y José. Oración: «Ven, Señor Jesús, no tardes más.»"
+        },
+        {
+          "titulo": "Las Posadas Tradicionales (16 al 24 de Diciembre)",
+          "contenido": "1. Canto para Pedir Posada (Afuera y Adentro):\n\n[Afuera - Peregrinos]\n- En el nombre del cielo, os pido posada, pues no puede andar mi esposa amada.\n- No seas inhumano, tennos caridad, que el Dios de los cielos te lo premiará.\n- Aquí es un mesón, ábranse el portal, que anda descarriada la reina celestial.\n- Mi esposa es María, es Reina del Cielo, y madre va a ser del Divino Suelo.\n- Dichosa la casa que hospeda este día a la Virgen Pura, la hermosa María.\n\n[Adentro - Posadero]\n- Aquí no es mesón, sigan adelante, yo no puedo abrir, no sea algún tunante.\n- Ya se pueden ir y no molestar, porque si me enojo los voy a apalear.\n- ¿Quién es el que da con tanto insistir, posada a estas horas, cómo he de abrir?\n- Pues si es reina anhelada, ¿cómo es que de noche anda tan amada?\n- ¿Eres tú José? ¿Tu esposa es María? Entren peregrinos, no los conocía.\n\n[Al abrir la puerta - Todos]\n«Entren santos peregrinos, reciban este rincón, que aunque es pobre la morada, os la doy de corazón. ¡Cantemos con alegría todos al considerar que Jesús, José y María nos vienen a visitar!»\n\n2. Letanías Tradicionales:\nSeñor, ten piedad de nosotros... Jesucristo, ten piedad de nosotros... Santa María, madre de Dios, ruega por nosotros. San José, ilustre descendiente de David, luz de los patriarcas, custodio del Redentor, casto guardián de la Virgen, padre nutricio del Hijo de Dios, ruega por nosotros.\n\n3. Oración al romper la piñata:\n«¡No quieras perder el tino, porque en el cielo se ven las estrellas y yo no veo ninguna más que la luz de la lunita! Dale, dale, dale, no pierdas el tino, porque si lo pierdes, pierdes el camino. ¡Ya le diste una, ya le diste dos, ya le diste tres y tu tiempo se acabó!»\nSeñor Dios, al romper esta piñata, te pedimos que rompamos también las cadenas del egoísmo y el pecado, recordando que los dones verdaderos vienen de tu generosidad infinita. Amén."
+        },
+        {
+          "titulo": "Bendición del Nacimiento y Niño Dios (Nochebuena)",
+          "contenido": "Señor Dios, Padre nuestro, que tanto amaste al mundo que nos diste a tu Hijo único nacido de la Virgen María, bendice este Nacimiento y a este Santo Niño. Haz que en nuestro hogar reine tu paz, la comprensión y el amor entrañable. Que al contemplar este pesebre recordemos la humildad con que vino el Salvador. Por Cristo nuestro Señor. Amén.\n\nArrullo tradicional:\n«Duérmete mi niño, duérmete mi amor, duérmete pedazo de mi corazón. Los luceros del alba te van a velar, y la Virgen Pura te arrullará.»"
+        }
+      ]
+    },
+    {
+      "id": "cuaresma",
+      "titulo": "Cuaresma y Semana Santa",
+      "subtitulo": "Tiempo de Conversión y Triduo Pascual",
+      "mesInicio": 2,
+      "diaInicio": 15,
+      "mesFin": 4,
+      "diaFin": 30,
+      "descripcion": "Guía completa para la Cuaresma, las 14 Estaciones del Viacrucis, el Triduo Pascual y el Pésame a la Virgen.",
+      "icono": "✝️",
+      "secciones": [
+        {
+          "titulo": "Las 14 Estaciones del Viacrucis Tradicional",
+          "contenido": "1ª Estación: Jesús es condenado a muerte.\n- V. Te adoramos, oh Cristo, y te bendecimos.\n- R. Que por tu Santa Cruz redimiste al mundo.\n- Meditación: Considera cómo nuestro Señor Jesucristo, por nuestros pecados, fue condenado a muerte en un tribunal inicuo.\n- Oración: Oh Jesús, por tu paciencia infinita, concédenos la gracia de abrazar nuestra cruz diaria. Amén.\n\n2ª Estación: Jesús carga con la Cruz.\n- Meditación: Considera cómo Jesús aceptó con amor la cruz sobre sus hombros lacerados por los azotes.\n- Oración: Señor, ayúdanos a cargar nuestras cruces sin quejas ni amargura. Amén.\n\n3ª Estación: Jesús cae por primera vez.\n- Meditación: Considera el peso abrumador de nuestros pecados que hizo caer a Jesús en el suelo polvoriento.\n- Oración: Señor, líbranos de caer en el pecado y levántanos cuando desfallezcamos. Amén.\n\n4ª Estación: Jesús encuentra a su Santísima Madre.\n- Meditación: Considera el dolor profundo del encuentro entre los corazones traspasados de Jesús y María.\n- Oración: Santa Madre, intercede para que sepamos encontrar consuelo en el dolor. Amén.\n\n5ª Estación: El Cirineo ayuda a Jesús a llevar la Cruz.\n- Meditación: Considera cómo Simón de Cirene fue obligado a ayudar al Señor a cargar el madero.\n- Oración: Señor, haznos instrumentos dispuestos a aliviar el sufrimiento ajeno. Amén.\n\n6ª Estación: La Verónica enjuga el rostro de Jesús.\n- Meditación: Considera el gesto de amor de la mujer piadosa que limpió el rostro ensangrentado de Jesús.\n- Oración: Señor, imprime tu santo rostro en nuestros corazones. Amén.\n\n7ª Estación: Jesús cae por segunda vez.\n- Meditación: Considera la debilidad humana asumida por Cristo, cayendo de nuevo bajo el peso de la cruz.\n- Oración: Señor, danos fortaleza para levantarnos de nuestras recaídas. Amén.\n\n8ª Estación: Jesús consuela a las mujeres de Jerusalén.\n- Meditación: Considera cómo Jesús prefiere consolar a las hijas de Jerusalén antes que lamentar su propio dolor.\n- Oración: Señor, danos la gracia de llorar nuestros pecados con verdadero arrepentimiento. Amén.\n\n9ª Estación: Jesús cae por tercera vez.\n- Meditación: Considera la tercera caída de Jesús al aproximarse al Calvario, agotado y sin fuerzas.\n- Oración: Señor, cuando el peso de la vida nos agobie, sé nuestra fuerza inagotable. Amén.\n\n10ª Estación: Jesús es despojado de sus vestiduras.\n- Meditación: Considera la humillación pública de Jesús al arrancarle sus vestiduras adheridas a sus heridas.\n- Oración: Señor, desnúdanos de todo orgullo y vanidad terrena. Amén.\n\n11ª Estación: Jesús es clavado en la Cruz.\n- Meditación: Considera los golpes crueles de los clavos que fijaron las manos y los pies del Salvador.\n- Oración: Señor, clava nuestros corazones a tu amor misericordioso. Amén.\n\n12ª Estación: Jesús muere en la Cruz.\n- Meditación: Considera cómo Jesús exclamó «Todo está cumplido», inclinó la cabeza y entregó su espíritu.\n- Oración: Oh Cristo crucificado, fuente de vida eterna, ten piedad de nosotros y del mundo entero. Amén.\n\n13ª Estación: Jesús es bajado de la cruz y entregado a su Madre.\n- Meditación: Considera el dolor inmenso de María al recibir en sus brazos el cuerpo sin vida de su Hijo.\n- Oración: Madre dolorosa, ruega por nosotros en la hora de nuestra muerte. Amén.\n\n14ª Estación: Jesús es sepultado.\n- Meditación: Considera cómo el cuerpo santísimo de Jesús fue depositado en el sepulcro esperando la resurrección.\n- Oración: Señor, haz que sepultemos el pecado para resucitar a una vida nueva de gracia. Amén."
+        },
+        {
+          "titulo": "Triduo Pascual en el Hogar",
+          "contenido": "Jueves Santo: Institución de la Eucaristía y el Sacerdocio. Realizar en familia el lavatorio de pies recordando el mandamiento del amor fraterno, seguido de la oración en el huerto y la visita devota a los 7 Templos.\n\nViernes Santo: Día de ayuno y abstinencia. Participar en la Liturgia de la Pasión, la Adoración de la Santa Cruz y el rezo del Pésame a la Santísima Virgen María en su Soledad.\n\nSábado Santo y Vigilia Pascual: Jornada de solemne silencio y esperanza. Por la noche, celebrar la Vigilia Pascual con el fuego nuevo y el gozo de la Resurrección del Señor."
+        }
+      ]
+    },
+    {
+      "id": "guadalupe",
+      "titulo": "Fiesta de Nuestra Señora de Guadalupe",
+      "subtitulo": "Del 3 al 12 de Diciembre",
+      "mesInicio": 12,
+      "diaInicio": 3,
+      "mesFin": 12,
+      "diaFin": 12,
+      "descripcion": "Novena Guadalupana, Santo Rosario y el mensaje completo de esperanza de la Morenita del Tepeyac en el Nican Mopohua.",
+      "icono": "🌹",
+      "secciones": [
+        {
+          "titulo": "Mensaje Completo del Nican Mopohua",
+          "contenido": "«Oye y ten bien en el corazón, hijo mío el más pequeño, que no es nada lo que te asustó, no se turbe tu corazón, no temas esa enfermedad, ni ninguna otra enfermedad o angustia. ¿No estoy yo aquí, que soy tu madre? ¿No estás bajo mi sombra y resguardo? ¿No soy yo la fuente de tu alegría? ¿No estás en el hueco de mi manto, en el cruce de mis brazos? ¿Tienes necesidad de alguna otra cosa? Que ninguna otra cosa te angustie ni te inquiete...»\n\nEste mensaje dirigido a San Juan Diego es el corazón de la espiritualidad guadalupana en México, recordándonos la cercanía maternal de María en todo momento de prueba y dolor."
+        },
+        {
+          "titulo": "Oración a Santa María de Guadalupe por México",
+          "contenido": "Oh Virgen Santísima de Guadalupe, Madre de los mexicanos y Reina de la Paz, acudimos a ti llenos de confianza. Alcánzanos de tu Hijo Jesús la gracia de vivir en armonía, proteger la vida desde su concepción hasta su término natural, cuidar a nuestras familias y promover la justicia en nuestra patria. Danos tu amor y tu bendición constante. Amén."
+        }
+      ]
+    },
+    {
+      "id": "difuntos",
+      "titulo": "Día de Muertos y Fieles Difuntos",
+      "subtitulo": "1 y 2 de Noviembre",
+      "mesInicio": 11,
+      "diaInicio": 1,
+      "mesFin": 11,
+      "diaFin": 10,
+      "descripcion": "Catequesis sobre la esperanza cristiana de la Resurrección, bendición completa del Altar de Muertos y Novenario por los difuntos.",
+      "icono": "🕯️",
+      "secciones": [
+        {
+          "titulo": "Sentido Cristiano del Día de Muertos",
+          "contenido": "La Iglesia nos enseña que la muerte no es el final, sino el nacimiento a la vida eterna en Cristo. La tradición mexicana del Día de Muertos es una expresión profunda de la Comunión de los Santos: recordamos a nuestros seres queridos con fe, esperanza y oración, sabiendo que el amor trasciende la muerte y que unidos en Cristo formamos una sola familia."
+        },
+        {
+          "titulo": "Bendición del Altar de Muertos en Familia",
+          "contenido": "Señor de la vida y de la historia, bendice esta ofrenda y este altar que preparamos con amor en memoria de nuestros padres, abuelos, familiares y amigos difuntos. Te pedimos que los recibas en tu reino de luz perpetua, perdonando sus faltas y colmándolos de tu paz. Que este altar sea signo de nuestra fe en la Resurrección. Por Cristo nuestro Señor. Amén.\n\nOración por los Fieles Difuntos:\nDales, Señor, el descanso eterno, y brille para ellos la luz perpetua. Que las almas de todos los fieles difuntos, por la misericordia de Dios, descansen en paz. Amén."
+        }
+      ]
+    },
+    {
+      "id": "familia",
+      "titulo": "Jornadas de la Familia y la Sociedad",
+      "subtitulo": "Madres, Padres, Abuelos y Niños",
+      "mesInicio": 5,
+      "diaInicio": 1,
+      "mesFin": 8,
+      "diaFin": 31,
+      "descripcion": "Bendiciones y oraciones completas dedicadas al Día del Niño, Día de las Madres, Día del Padre y Día de los Abuelos.",
+      "icono": "👨‍👩‍👧‍👦",
+      "secciones": [
+        {
+          "titulo": "Oración y Bendición del Día de las Madres (10 de Mayo)",
+          "contenido": "Señor Dios, creador y padre de todos, te damos gracias por el don maravilloso de nuestras madres. Bendícelas con salud inquebrantable, paz interior y tu divino amor. Compensa sus desvelos y sacrificios, y concédeles la inmensa alegría de ver a sus hijos caminando en la verdad y el bien. Amén."
+        },
+        {
+          "titulo": "Oración por los Abuelos y Adultos Mayores (28 de Agosto)",
+          "contenido": "Señor Jesús, te pedimos con afecto por nuestros abuelos y ancianos. Bendice su sabiduría, paciencia y testimonio de fe. Guárdalos en su fragilidad, líbralos de la soledad y concédeles sentir siempre el amor, la gratitud y el respeto de sus familias y de la sociedad. Amén."
+        }
+      ]
+    }
+  ]
+}

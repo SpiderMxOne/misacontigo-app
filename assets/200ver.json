@@ -1,0 +1,1202 @@
+[
+  {
+    "id": 1,
+    "referencia": "Juan 3:16",
+    "texto": "Porque tanto amó Dios al mundo que dio a su Hijo único, para que todo el que crea en él no se pierda, sino que tenga vida eterna.",
+    "categoria": "Amor de Dios"
+  },
+  {
+    "id": 2,
+    "referencia": "Salmos 23:1",
+    "texto": "El Señor es mi pastor, nada me falta.",
+    "categoria": "Confianza"
+  },
+  {
+    "id": 3,
+    "referencia": "Filipenses 4:13",
+    "texto": "Todo lo puedo en Cristo que me fortalece.",
+    "categoria": "Fortaleza"
+  },
+  {
+    "id": 4,
+    "referencia": "Romanos 8:28",
+    "texto": "Sabemos que Dios dispone todas las cosas para el bien de los que le aman, los que han sido llamados de acuerdo con su propósito.",
+    "categoria": "Esperanza"
+  },
+  {
+    "id": 5,
+    "referencia": "Jeremías 29:11",
+    "texto": "Porque yo sé muy bien los planes que tengo para ustedes —afirma el Señor—, planes de bienestar y no de calamidad, a fin de darles un futuro y una esperanza.",
+    "categoria": "Providencia"
+  },
+  {
+    "id": 6,
+    "referencia": "Proverbios 3:5",
+    "texto": "Confía en el Señor de todo corazón, y no te apoyes en tu propia prudencia.",
+    "categoria": "Sabiduría"
+  },
+  {
+    "id": 7,
+    "referencia": "Isaías 40:31",
+    "texto": "Pero los que confían en el Señor renovarán sus fuerzas; levantarán el vuelo como las águilas, correrán y no se fatigarán, caminarán y no se cansarán.",
+    "categoria": "Esperanza"
+  },
+  {
+    "id": 8,
+    "referencia": "Josué 1:9",
+    "texto": "Ya te lo he ordenado: ¡Sé fuerte y valiente! ¡No tengas miedo ni te desanimes! Porque el Señor tu Dios te acompañará dondequiera que vayas.",
+    "categoria": "Valor"
+  },
+  {
+    "id": 9,
+    "referencia": "Mateo 28:20",
+    "texto": "Y sepan que yo estoy con ustedes todos los días, hasta el fin del mundo.",
+    "categoria": "Presencia de Dios"
+  },
+  {
+    "id": 10,
+    "referencia": "Salmos 91:1",
+    "texto": "El que habita al abrigo del Altísimo morará a la sombra del Omnipotente.",
+    "categoria": "Protección"
+  },
+  {
+    "id": 11,
+    "referencia": "Romanos 12:2",
+    "texto": "No se amolden al mundo actual, sino sean transformados mediante la renovación de su mente. Así podrán comprobar cuál es la voluntad de Dios, buena, agradable y perfecta.",
+    "categoria": "Transformación"
+  },
+  {
+    "id": 12,
+    "referencia": "1 Corintios 13:4",
+    "texto": "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso.",
+    "categoria": "Amor"
+  },
+  {
+    "id": 13,
+    "referencia": "Gálatas 5:22",
+    "texto": "En cambio, el fruto del Espíritu es amor, alegría, paz, paciencia, amabilidad, bondad, fidelidad, mansedumbre y dominio propio.",
+    "categoria": "Frutos del Espíritu"
+  },
+  {
+    "id": 14,
+    "referencia": "Isaías 41:10",
+    "texto": "No temas, porque yo estoy contigo; no te desanimes, porque yo soy tu Dios. Te fortaleceré y te ayudaré; te sostendré con mi diestra victoriosa.",
+    "categoria": "Consuelo"
+  },
+  {
+    "id": 15,
+    "referencia": "Mateo 11:28",
+    "texto": "Vengan a mí todos los que están cansados y cargados, y yo los haré descansar.",
+    "categoria": "Descanso"
+  },
+  {
+    "id": 16,
+    "referencia": "Salmos 119:105",
+    "texto": "Tu palabra es una lámpara a mis pies y una luz en mi sendero.",
+    "categoria": "Palabra de Dios"
+  },
+  {
+    "id": 17,
+    "referencia": "Filipenses 4:6",
+    "texto": "No se inquieten por nada; más bien, en toda ocasión, con oración y ruego, presenten sus peticiones a Dios y denle gracias.",
+    "categoria": "Paz"
+  },
+  {
+    "id": 18,
+    "referencia": "Efesios 2:8",
+    "texto": "Porque por gracia ustedes han sido salvados mediante la fe; esto no procede de ustedes, sino que es el don de Dios.",
+    "categoria": "Salvación"
+  },
+  {
+    "id": 19,
+    "referencia": "2 Corintios 5:7",
+    "texto": "Vivimos por fe, no por vista.",
+    "categoria": "Fe"
+  },
+  {
+    "id": 20,
+    "referencia": "Santiago 1:5",
+    "texto": "Si a alguno de ustedes le falta sabiduría, pídasela a Dios, y él se la dará, pues Dios da a todos generosamente sin menospreciar a nadie.",
+    "categoria": "Sabiduría"
+  },
+  {
+    "id": 21,
+    "referencia": "Apocalipsis 3:20",
+    "texto": "Mira que estoy a la puerta y llamo. Si alguno oye mi voz y abre la puerta, entraré a él y cenaré con él y él conmigo.",
+    "categoria": "Comunión"
+  },
+  {
+    "id": 22,
+    "referencia": "Juan 14:6",
+    "texto": "Yo soy el camino, la verdad y la vida —le contestó Jesús—. Nadie llega al Padre sino por mí.",
+    "categoria": "Jesucristo"
+  },
+  {
+    "id": 23,
+    "referencia": "Salmos 37:4",
+    "texto": "Deléitate en el Señor, y él te concederá los deseos de tu corazón.",
+    "categoria": "Gozo"
+  },
+  {
+    "id": 24,
+    "referencia": "Mateo 6:33",
+    "texto": "Más bien, busquen primeramente el reino de Dios y su justicia, y todas estas cosas les serán añadidas.",
+    "categoria": "Prioridades"
+  },
+  {
+    "id": 25,
+    "referencia": "1 Pedro 5:7",
+    "texto": "Den todas sus preocupaciones a Dios, porque él se interesa por ustedes.",
+    "categoria": "Confianza"
+  },
+  {
+    "id": 26,
+    "referencia": "Romanos 15:13",
+    "texto": "Que el Dios de la esperanza los llene de toda alegría y paz a ustedes que creen en él, para que rebosen de esperanza por el poder del Espíritu Santo.",
+    "categoria": "Esperanza"
+  },
+  {
+    "id": 27,
+    "referencia": "Hebreos 11:1",
+    "texto": "Ahora bien, la fe es la garantía de lo que se espera, la certeza de lo que no se ve.",
+    "categoria": "Fe"
+  },
+  {
+    "id": 28,
+    "referencia": "Colosenses 3:23",
+    "texto": "Hagan lo que hagan, trabajen de buena gana, como para el Señor y no para nadie en este mundo.",
+    "categoria": "Trabajo"
+  },
+  {
+    "id": 29,
+    "referencia": "Salmos 46:1",
+    "texto": "Dios es nuestro amparo y nuestra fortaleza, nuestra ayuda segura en momentos de angustia.",
+    "categoria": "Refugio"
+  },
+  {
+    "id": 30,
+    "referencia": "Miqueas 6:8",
+    "texto": "Se te ha declarado, oh hombre, lo que es bueno. ¿Qué pide el Señor de ti?: Practicar la justicia, amar la misericordia y humillarte ante tu Dios.",
+    "categoria": "Justicia"
+  },
+  {
+    "id": 31,
+    "referencia": "Lucas 1:38",
+    "texto": "Dijo María: «Yo soy la esclava del Señor; hágase en mí según tu palabra».",
+    "categoria": "María / Vocación"
+  },
+  {
+    "id": 32,
+    "referencia": "Juan 19:26",
+    "texto": "Jesús, al ver a su madre y junto a ella al discípulo a quien amaba, dijo a su madre: «Mujer, ahí tienes a tu hijo».",
+    "categoria": "María / Iglesia"
+  },
+  {
+    "id": 33,
+    "referencia": "Mateo 16:18",
+    "texto": "Y yo te digo que tú eres Pedro, y sobre esta piedra edificaré mi iglesia, y las puertas del infierno no prevalecerán contra ella.",
+    "categoria": "Iglesia / Pedro"
+  },
+  {
+    "id": 34,
+    "referencia": "Mateo 26:26",
+    "texto": "Mientras comían, Jesús tomó pan, y habiendo bendecido, lo partió, y dándoselo a los discípulos, dijo: «Tomad, comed; esto es mi cuerpo».",
+    "categoria": "Eucaristía"
+  },
+  {
+    "id": 35,
+    "referencia": "Juan 6:54",
+    "texto": "El que come mi carne y bebe mi sangre tiene vida eterna, y yo le resucitaré en el último día.",
+    "categoria": "Eucaristía"
+  },
+  {
+    "id": 36,
+    "referencia": "Lucas 11:9",
+    "texto": "Por eso os digo: Pedid y se os dará, buscad y hallaréis, llamad y se os abrirá.",
+    "categoria": "Oración"
+  },
+  {
+    "id": 37,
+    "referencia": "Juan 15:5",
+    "texto": "Yo soy la vid, ustedes los sarmientos. El que permanece en mí y yo en él, este da mucho fruto; porque separados de mí nada pueden hacer.",
+    "categoria": "Unión con Cristo"
+  },
+  {
+    "id": 38,
+    "referencia": "Salmos 27:1",
+    "texto": "El Señor es mi luz y mi salvación; ¿a quién temeré? El Señor es el baluarte de mi vida; ¿de quién tendré temor?",
+    "categoria": "Confianza"
+  },
+  {
+    "id": 39,
+    "referencia": "Salmos 34:8",
+    "texto": "Prueben y vean que el Señor es bueno; dichoso el que refugia en él.",
+    "categoria": "Bondad de Dios"
+  },
+  {
+    "id": 40,
+    "referencia": "Romanos 8:31",
+    "texto": "¿Qué diremos a esto? Si Dios está por nosotros, ¿quién contra nosotros?",
+    "categoria": "Victoria"
+  },
+  {
+    "id": 41,
+    "referencia": "Romanos 8:38",
+    "texto": "Pues estoy convencido de que ni la muerte ni la vida, ni ángeles ni demonios, ni lo presente ni lo por venir, ni los poderes, ni lo alto ni lo profundo, ni ninguna otra cosa creada podrá separarnos del amor que Dios nos ha manifestado en Cristo Jesús nuestro Señor.",
+    "categoria": "Amor de Dios"
+  },
+  {
+    "id": 42,
+    "referencia": "1 Corintios 10:13",
+    "texto": "No les ha sobrevenido ninguna tentación que no sea común a los humanos. Y fiel es Dios, que no dejará que sean tentados más allá de lo que puedan soportar.",
+    "categoria": "Fidelidad de Dios"
+  },
+  {
+    "id": 43,
+    "referencia": "2 Corintios 12:9",
+    "texto": "Pero él me dijo: «Te basta con mi gracia, pues mi poder se perfecciona en la debilidad».",
+    "categoria": "Gracia"
+  },
+  {
+    "id": 44,
+    "referencia": "Gálatas 2:20",
+    "texto": "He sido crucificado con Cristo, y ya no vivo yo, sino que Cristo vive en lo que ahora vivo en el cuerpo, lo vivo por la fe en el Hijo de Dios.",
+    "categoria": "Identidad en Cristo"
+  },
+  {
+    "id": 45,
+    "referencia": "Efesios 3:20",
+    "texto": "Al que puede hacer muchísimo más que todo lo que nos imaginamos o pedimos, por el poder que actúa en nosotros, a él sea la gloria en la iglesia y en Cristo Jesús por todas las generaciones, por los siglos de los siglos. Amén.",
+    "categoria": "Poder de Dios"
+  },
+  {
+    "id": 46,
+    "referencia": "Filipenses 4:19",
+    "texto": "Así que mi Dios les proveerá de todo lo que necesiten, conforme a las gloriosas riquezas que tiene en Cristo Jesús.",
+    "categoria": "Provisión"
+  },
+  {
+    "id": 47,
+    "referencia": "Colosenses 3:12",
+    "texto": "Por lo tanto, como escogidos de Dios, santos y amados, revístanse de afecto entrañable y de bondad, humildad, amabilidad y paciencia.",
+    "categoria": "Virtudes"
+  },
+  {
+    "id": 48,
+    "referencia": "1 Tesalonicenses 5:16",
+    "texto": "Estén siempre alegres, oren sin cesar, den gracias a Dios en toda situación.",
+    "categoria": "Alegría y Oración"
+  },
+  {
+    "id": 49,
+    "referencia": "2 Timoteo 1:7",
+    "texto": "Pues Dios no nos ha dado un espíritu de timidez, sino de poder, de amor y de dominio propio.",
+    "categoria": "Valor"
+  },
+  {
+    "id": 50,
+    "referencia": "Hebreos 4:16",
+    "texto": "Acerquémonos, pues, confiadamente al trono de la gracia para alcanzar misericordia y hallar gracia para cuando necesitemos ayuda.",
+    "categoria": "Gracia"
+  },
+  {
+    "id": 51,
+    "referencia": "Santiago 4:7",
+    "texto": "Así que sométanse a Dios. Resistan al diablo, y él huirá de ustedes.",
+    "categoria": "Protección"
+  },
+  {
+    "id": 52,
+    "referencia": "1 Pedro 3:15",
+    "texto": "Más bien, honren a Cristo como Señor en sus corazones. Estén siempre preparados para responder a todo el que les pida razón de la esperanza que hay en ustedes.",
+    "categoria": "Testimonio"
+  },
+  {
+    "id": 53,
+    "referencia": "1 Juan 4:18",
+    "texto": "En el amor no hay temor, sino que el perfecto amor echa fuera el temor.",
+    "categoria": "Amor"
+  },
+  {
+    "id": 54,
+    "referencia": "Apocalipsis 21:4",
+    "texto": "Él les enjugará toda lágrima de los ojos. Ya no habrá muerte, ni llanto, ni lamento ni dolor, porque las primeras cosas han dejado de existir.",
+    "categoria": "Eternidad"
+  },
+  {
+    "id": 55,
+    "referencia": "Salmos 51:1",
+    "texto": "Ten piedad de mí, oh Dios, conforme a tu misericordia; conforme a la multitud de tus piedades borra mis rebeliones.",
+    "categoria": "Misericordia"
+  },
+  {
+    "id": 56,
+    "referencia": "Salmos 63:1",
+    "texto": "Oh Dios, tú eres mi Dios; yo te busco con avidez. Mi alma tiene sed de ti; todo mi ser te anhela en esta tierra seca y sedienta donde no hay agua.",
+    "categoria": "Devoción"
+  },
+  {
+    "id": 57,
+    "referencia": "Salmos 84:11",
+    "texto": "Porque sol y escudo es el Señor Dios; gracia y gloria dará el Señor. No negará el bien a los que andan en integridad.",
+    "categoria": "Gracia"
+  },
+  {
+    "id": 58,
+    "referencia": "Salmos 103:2",
+    "texto": "Bendice, alma mía, al Señor, y no olvides ninguno de sus beneficios.",
+    "categoria": "Alabanza"
+  },
+  {
+    "id": 59,
+    "referencia": "Salmos 121:1",
+    "texto": "A los montes levanto mis ojos; ¿de dónde ha de venir mi ayuda? Mi ayuda proviene del Señor, creador del cielo y de la tierra.",
+    "categoria": "Ayuda Divina"
+  },
+  {
+    "id": 60,
+    "referencia": "Proverbios 16:3",
+    "texto": "Pon en manos del Señor todas tus obras, y tus proyectos se cumplirán.",
+    "categoria": "Proyectos"
+  },
+  {
+    "id": 61,
+    "referencia": "Proverbios 18:10",
+    "texto": "Torre fuerte es el nombre del Señor; a ella corre el justo y queda a salvo.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": 62,
+    "referencia": "Eclesiastés 3:1",
+    "texto": "Todo tiene su tiempo, y todo lo que se quiere debajo del cielo tiene su hora.",
+    "categoria": "Tiempo"
+  },
+  {
+    "id": 63,
+    "referencia": "Isaías 7:14",
+    "texto": "Por tanto, el Señor mismo os dará señal: He aquí que la virgen concebirá y dará a luz un hijo, y llamará su nombre Emanuel.",
+    "categoria": "Encarnación"
+  },
+  {
+    "id": 64,
+    "referencia": "Isaías 9:6",
+    "texto": "Porque un niño nos es nacido, hijo nos es dado, y el principado sobre su hombro; y se llamará su nombre Admirable, Consejero, Dios Fuerte, Padre Eterno, Príncipe de Paz.",
+    "categoria": "Mesías"
+  },
+  {
+    "id": 65,
+    "referencia": "Jeremías 15:16",
+    "texto": "Fueron halladas tus palabras, y yo las comí; y tu palabra me fue por gozo y por alegría de mi corazón.",
+    "categoria": "Palabra de Dios"
+  },
+  {
+    "id": 66,
+    "referencia": "Lamentaciones 3:22",
+    "texto": "El gran amor del Señor nunca se acaba, y sus compasiones jamás se agotan.",
+    "categoria": "Misericordia"
+  },
+  {
+    "id": 67,
+    "referencia": "Ezequiel 36:26",
+    "texto": "Os daré corazón nuevo, y pondré espíritu nuevo dentro de vosotros; y quitaré de vuestra carne el corazón de piedra, y os daré un corazón de carne.",
+    "categoria": "Renovación"
+  },
+  {
+    "id": 68,
+    "referencia": "Oseas 6:6",
+    "texto": "Porque misericordia quise, y no sacrificio, y conocimiento de Dios más que holocaustos.",
+    "categoria": "Misericordia"
+  },
+  {
+    "id": 69,
+    "referencia": "Joel 2:28",
+    "texto": "Y después de esto derramaré mi Espíritu sobre toda carne, y profetizarán vuestros hijos y vuestras hijas; vuestros ancianos soñarán sueños, y vuestros jóvenes verán visiones.",
+    "categoria": "Espíritu Santo"
+  },
+  {
+    "id": 70,
+    "referencia": "Amós 5:24",
+    "texto": "Pero corra el juicio como las aguas, y la justicia como impetuoso arroyo.",
+    "categoria": "Justicia"
+  },
+  {
+    "id": 71,
+    "referencia": "Jonás 2:2",
+    "texto": "Y él dijo: Invoqué en mi angustia al Señor, y él me oyó; desde el seno del seol clamé, y mi voz oíste.",
+    "categoria": "Oración"
+  },
+  {
+    "id": 72,
+    "referencia": "Habacuc 2:4",
+    "texto": "Mas el justo por su fe vivirá.",
+    "categoria": "Fe"
+  },
+  {
+    "id": 73,
+    "referencia": "Sofonías 3:17",
+    "texto": "El Señor está en medio de ti, poderoso, él salvará; se gozará sobre ti con alegría, callará de amor, se gozará sobre ti con cánticos.",
+    "categoria": "Alegría de Dios"
+  },
+  {
+    "id": 74,
+    "referencia": "Zacarías 4:6",
+    "texto": "No con ejército, ni con fuerza, sino con mi Espíritu, ha dicho el Señor de los ejércitos.",
+    "categoria": "Espíritu Santo"
+  },
+  {
+    "id": 75,
+    "referencia": "Malaquías 3:10",
+    "texto": "Traed todos los diezmos al alfolí y haya alimento en mi casa; y probadme ahora en esto, dice el Señor de los ejércitos, si no os abriré las ventanas de los cielos, y derramaré sobre vosotros bendición hasta que sobreabunde.",
+    "categoria": "Providencia"
+  },
+  {
+    "id": 76,
+    "referencia": "Mateo 1:21",
+    "texto": "Y dará a luz un hijo, y llamarás su nombre JESÚS, porque él salvará a su pueblo de sus pecados.",
+    "categoria": "Jesucristo"
+  },
+  {
+    "id": 77,
+    "referencia": "Mateo 2:2",
+    "texto": "¿Dónde está el rey de los judíos, que ha nacido? Porque su estrella hemos visto en el oriente, y venimos a adorarle.",
+    "categoria": "Epifanía"
+  },
+  {
+    "id": 78,
+    "referencia": "Mateo 5:3",
+    "texto": "Bienaventurados los pobres en espíritu, porque de ellos es el reino de los cielos.",
+    "categoria": "Bienaventuranzas"
+  },
+  {
+    "id": 79,
+    "referencia": "Mateo 5:4",
+    "texto": "Bienaventurados los que lloran, porque ellos recibirán consolación.",
+    "categoria": "Bienaventuranzas"
+  },
+  {
+    "id": 80,
+    "referencia": "Mateo 5:5",
+    "texto": "Bienaventurados los mansos, porque ellos recibirán la tierra por heredad.",
+    "categoria": "Bienaventuranzas"
+  },
+  {
+    "id": 81,
+    "referencia": "Mateo 5:6",
+    "texto": "Bienaventurados los que tienen hambre y sed de justicia, porque ellos serán saciados.",
+    "categoria": "Bienaventuranzas"
+  },
+  {
+    "id": 82,
+    "referencia": "Mateo 5:7",
+    "texto": "Bienaventurados los misericordiosos, porque ellos alcanzarán misericordia.",
+    "categoria": "Bienaventuranzas"
+  },
+  {
+    "id": 83,
+    "referencia": "Mateo 5:8",
+    "texto": "Bienaventurados los de limpio corazón, porque ellos verán a Dios.",
+    "categoria": "Bienaventuranzas"
+  },
+  {
+    "id": 84,
+    "referencia": "Mateo 5:9",
+    "texto": "Bienaventurados los pacificadores, porque ellos serán llamados hijos de Dios.",
+    "categoria": "Bienaventuranzas"
+  },
+  {
+    "id": 85,
+    "referencia": "Mateo 5:14",
+    "texto": "Vosotros sois la luz del mundo; una ciudad asentada sobre un monte no se puede esconder.",
+    "categoria": "Testimonio"
+  },
+  {
+    "id": 86,
+    "referencia": "Mateo 6:9",
+    "texto": "Vosotros, pues, oraréis así: Padre nuestro que estás en los cielos, santificado sea tu nombre. Venga tu reino. Hágase tu voluntad, como en el cielo, así también en la tierra.",
+    "categoria": "Padre Nuestro"
+  },
+  {
+    "id": 87,
+    "referencia": "Mateo 7:7",
+    "texto": "Pedid, y se os dará; buscad, y hallaréis; llamad, y se os abrirá.",
+    "categoria": "Oración"
+  },
+  {
+    "id": 88,
+    "referencia": "Mateo 7:12",
+    "texto": "Así que, todas las cosas que queráis que los hombres hagan con vosotros, así también haced vosotros con ellos; porque esto es la ley y los profetas.",
+    "categoria": "Regla de Oro"
+  },
+  {
+    "id": 89,
+    "referencia": "Mateo 10:28",
+    "texto": "Y no temáis a los que matan el cuerpo, mas el alma no pueden matar; temed más bien a aquel que puede destruir el alma y el cuerpo en el infierno.",
+    "categoria": "Temor de Dios"
+  },
+  {
+    "id": 90,
+    "referencia": "Mateo 11:29",
+    "texto": "Llevad mi yugo sobre vosotros, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas.",
+    "categoria": "Humildad"
+  },
+  {
+    "id": 91,
+    "referencia": "Mateo 18:20",
+    "texto": "Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos.",
+    "categoria": "Comunidad"
+  },
+  {
+    "id": 92,
+    "referencia": "Mateo 22:37",
+    "texto": "Jesús le dijo: Amarás al Señor tu Dios con todo tu corazón, y con toda tu alma, y con toda tu mente.",
+    "categoria": "Amor a Dios"
+  },
+  {
+    "id": 93,
+    "referencia": "Mateo 22:39",
+    "texto": "Y el segundo es semejante: Amarás a tu prójimo como a ti mismo.",
+    "categoria": "Amor al Prójimo"
+  },
+  {
+    "id": 94,
+    "referencia": "Marcos 1:15",
+    "texto": "El tiempo se ha cumplido, y el reino de Dios se ha acercado; arrepentíos, y creed en el evangelio.",
+    "categoria": "Conversión"
+  },
+  {
+    "id": 95,
+    "referencia": "Marcos 8:34",
+    "texto": "Si alguno quiere venir en pos de mí, niéguese a sí mismo, y tome su cruz, y sígame.",
+    "categoria": "Seguimiento"
+  },
+  {
+    "id": 96,
+    "referencia": "Marcos 9:23",
+    "texto": "Jesús le dijo: Si puedes creer, al que cree todo le es posible.",
+    "categoria": "Fe"
+  },
+  {
+    "id": 97,
+    "referencia": "Marcos 10:27",
+    "texto": "Entonces Jesús, mirándolos, dijo: Para los hombres es imposible, mas para con Dios, no; porque todas las cosas son posibles para con Dios.",
+    "categoria": "Poder de Dios"
+  },
+  {
+    "id": 98,
+    "referencia": "Marcos 11:24",
+    "texto": "Por tanto, os digo que todo lo que pidiereis orando, creed que lo recibiréis, y os vendrá.",
+    "categoria": "Oración"
+  },
+  {
+    "id": 99,
+    "referencia": "Marcos 12:31",
+    "texto": "Y el segundo es semejante: Amarás a tu prójimo como a ti mismo. No hay otro mandamiento mayor que éstos.",
+    "categoria": "Mandamientos"
+  },
+  {
+    "id": 100,
+    "referencia": "Marcos 16:15",
+    "texto": "Y les dijo: Id por todo el mundo y predicad el evangelio a toda criatura.",
+    "categoria": "Misión"
+  },
+  {
+    "id": 101,
+    "referencia": "Lucas 1:46",
+    "texto": "Dijo entonces María: Engrandece mi alma al Señor; y mi espíritu se regocija en Dios mi Salvador.",
+    "categoria": "Magníficat"
+  },
+  {
+    "id": 102,
+    "referencia": "Lucas 2:14",
+    "texto": "¡Gloria a Dios en las alturas, y en la tierra paz, buena voluntad para con los hombres!",
+    "categoria": "Navidad"
+  },
+  {
+    "id": 103,
+    "referencia": "Lucas 6:27",
+    "texto": "Pero a vosotros los que oís, os digo: Amad a vuestros enemigos, haced bien a los que os aborrecen; bendecid a los que os maldicen, y orad por los que os calumnian.",
+    "categoria": "Amor al Enemigo"
+  },
+  {
+    "id": 104,
+    "referencia": "Lucas 6:37",
+    "texto": "No juzguéis, y no seréis juzgados; no condenéis, y no seréis condenados; perdonad, y seréis perdonados.",
+    "categoria": "Perdón"
+  },
+  {
+    "id": 105,
+    "referencia": "Lucas 9:23",
+    "texto": "Y decía a todos: Si alguno quiere venir en pos de mí, niéguese a sí mismo, tome su cruz cada día, y sígame.",
+    "categoria": "Cruz"
+  },
+  {
+    "id": 106,
+    "referencia": "Lucas 10:27",
+    "texto": "Aquel, respondiendo, dijo: Amarás al Señor tu Dios con todo tu corazón, y con toda tu alma, y con todas tus fuerzas, y con toda tu mente; y a tu prójimo como a ti mismo.",
+    "categoria": "Amor"
+  },
+  {
+    "id": 107,
+    "referencia": "Lucas 15:7",
+    "texto": "Os digo que así habrá más gozo en el cielo por un pecador que se arrepiente, que por noventa y nueve justos que no necesitan de arrepentimiento.",
+    "categoria": "Conversión"
+  },
+  {
+    "id": 108,
+    "referencia": "Lucas 18:1",
+    "texto": "También les refirió Jesús una parábola sobre la necesidad de orar siempre, y no desmayar.",
+    "categoria": "Oración"
+  },
+  {
+    "id": 109,
+    "referencia": "Lucas 22:19",
+    "texto": "Y tomando el pan, habiendo dado gracias, lo partió y les dio, diciendo: Esto es mi cuerpo, que es dado por vosotros; haced esto en memoria de mí.",
+    "categoria": "Eucaristía"
+  },
+  {
+    "id": 110,
+    "referencia": "Lucas 24:34",
+    "texto": "Que decían: Ha resucitado el Señor verdaderamente, y ha aparecido a Simón.",
+    "categoria": "Resurrección"
+  },
+  {
+    "id": 111,
+    "referencia": "Juan 1:1",
+    "texto": "En el principio era el Verbo, y el Verbo era con Dios, y el Verbo era Dios.",
+    "categoria": "Divinidad de Cristo"
+  },
+  {
+    "id": 112,
+    "referencia": "Juan 1:14",
+    "texto": "Y aquel Verbo fue hecho carne, y habitó entre nosotros y vimos su gloria, gloria como del unigénito del Padre, lleno de gracia y de verdad.",
+    "categoria": "Encarnación"
+  },
+  {
+    "id": 113,
+    "referencia": "Juan 1:29",
+    "texto": "El siguiente día vio Juan a Jesús que venía a él, y dijo: He aquí el Cordero de Dios, que quita el pecado del mundo.",
+    "categoria": "Redención"
+  },
+  {
+    "id": 114,
+    "referencia": "Juan 2:5",
+    "texto": "Su madre dijo a los que servían: Haced todo lo que os dijere.",
+    "categoria": "Devoción Mariana"
+  },
+  {
+    "id": 115,
+    "referencia": "Juan 4:14",
+    "texto": "Mas el que bebiere del agua que yo le daré, no tendrá sed jamás, sino que el agua que yo le daré será en él una fuente de agua que salte para vida eterna.",
+    "categoria": "Agua Viva"
+  },
+  {
+    "id": 116,
+    "referencia": "Juan 8:12",
+    "texto": "Yo soy la luz del mundo; el que me sigue, no andará en tinieblas, sino que tendrá la luz de la vida.",
+    "categoria": "Luz"
+  },
+  {
+    "id": 117,
+    "referencia": "Juan 8:32",
+    "texto": "Y conoceréis la verdad, y la verdad os hará libres.",
+    "categoria": "Verdad y Libertad"
+  },
+  {
+    "id": 118,
+    "referencia": "Juan 10:10",
+    "texto": "El ladrón no viene sino para hurtar y matar y destruir; yo he venido para que tengan vida, y para que la tengan en abundancia.",
+    "categoria": "Vida Plena"
+  },
+  {
+    "id": 119,
+    "referencia": "Juan 10:11",
+    "texto": "Yo soy el buen pastor; el buen pastor su vida da por las ovejas.",
+    "categoria": "Buen Pastor"
+  },
+  {
+    "id": 120,
+    "referencia": "Juan 11:25",
+    "texto": "Le dijo Jesús: Yo soy la resurrección y la vida; el que cree en mí, aunque esté muerto, vivirá.",
+    "categoria": "Resurrección"
+  },
+  {
+    "id": 121,
+    "referencia": "Juan 13:34",
+    "texto": "Un mandamiento nuevo os doy: Que os améis unos a otros; como os he amado, que también os améis unos a otros.",
+    "categoria": "Amor Fraterno"
+  },
+  {
+    "id": 122,
+    "referencia": "Juan 14:1",
+    "texto": "No se turbe vuestro corazón; creéis en Dios, creed también en mí.",
+    "categoria": "Consuelo"
+  },
+  {
+    "id": 123,
+    "referencia": "Juan 14:2",
+    "texto": "En la casa de mi Padre muchas moradas hay; si así no fuera, os lo hubiera dicho; voy, pues, a preparar lugar para vosotros.",
+    "categoria": "Eternidad"
+  },
+  {
+    "id": 124,
+    "referencia": "Juan 14:27",
+    "texto": "La paz os dejo, mi paz os doy; yo no os la doy como el mundo la da. No se turbe vuestro corazón, ni tenga miedo.",
+    "categoria": "Paz"
+  },
+  {
+    "id": 125,
+    "referencia": "Juan 15:13",
+    "texto": "Nadie tiene mayor amor que este, que uno ponga su vida por sus amigos.",
+    "categoria": "Amor"
+  },
+  {
+    "id": 126,
+    "referencia": "Juan 16:33",
+    "texto": "Estas cosas os he hablado para que en mí tengáis paz. En el mundo tendréis aflicción; pero confiad, yo he vencido al mundo.",
+    "categoria": "Victoria"
+  },
+  {
+    "id": 127,
+    "referencia": "Juan 17:21",
+    "texto": "Para que todos sean uno; como tú, oh Padre, en mí, y yo en ti, que también ellos sean uno en nosotros; para que el mundo crea que tú me enviaste.",
+    "categoria": "Unidad"
+  },
+  {
+    "id": 128,
+    "referencia": "Juan 19:30",
+    "texto": "Cuando Jesús tomó el vinagre, dijo: Consumado es. Y habiendo inclinado la cabeza, entregó el espíritu.",
+    "categoria": "Pasión"
+  },
+  {
+    "id": 129,
+    "referencia": "Juan 20:29",
+    "texto": "Jesús le dijo: Porque me has visto, Tomás, creíste; bienaventurados los que no vieron y creyeron.",
+    "categoria": "Fe"
+  },
+  {
+    "id": 130,
+    "referencia": "Juan 21:15",
+    "texto": "Jesús dijo a Simón Pedro: Simón, hijo de Jonás, ¿me amas más que éstos? Le respondió: Sí, Señor; tú sabes que te amo. Él le dijo: Apacienta mis corderos.",
+    "categoria": "Primado de Pedro"
+  },
+  {
+    "id": 131,
+    "referencia": "Hechos 1:8",
+    "texto": "Pero recibiréis poder, cuando haya venido sobre vosotros el Espíritu Santo, y me seréis testigos en Jerusalén, en toda Judea, en Samaria, y hasta lo último de la tierra.",
+    "categoria": "Espíritu Santo"
+  },
+  {
+    "id": 132,
+    "referencia": "Hechos 2:38",
+    "texto": "Pedro les dijo: Arrepentíos, y bautícese cada uno de vosotros en el nombre de Jesucristo para perdón de los pecados; y recibiréis el don del Espíritu Santo.",
+    "categoria": "Bautismo"
+  },
+  {
+    "id": 133,
+    "referencia": "Hechos 4:12",
+    "texto": "Y en ningún otro hay salvación; porque no hay otro nombre bajo el cielo, dado a los hombres, en el cual debamos ser salvos.",
+    "categoria": "Salvación"
+  },
+  {
+    "id": 134,
+    "referencia": "Hechos 16:31",
+    "texto": "Ellos dijeron: Cree en el Señor Jesucristo, y serás salvo, tú y tu casa.",
+    "categoria": "Fe"
+  },
+  {
+    "id": 135,
+    "referencia": "Hechos 20:35",
+    "texto": "En todo os he enseñado que, trabajando así, hay que someterse a los débiles, y recordar las palabras del Señor Jesús, que dijo: Más bienaventurado es dar que recibir.",
+    "categoria": "Caridad"
+  },
+  {
+    "id": 136,
+    "referencia": "Romanos 1:16",
+    "texto": "Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación a todo aquel que cree; al judío primeramente, y también al griego.",
+    "categoria": "Evangelio"
+  },
+  {
+    "id": 137,
+    "referencia": "Romanos 3:23",
+    "texto": "Por cuanto todos pecaron, y están destituidos de la gloria de Dios.",
+    "categoria": "Pecado"
+  },
+  {
+    "id": 138,
+    "referencia": "Romanos 5:8",
+    "texto": "Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros.",
+    "categoria": "Amor de Dios"
+  },
+  {
+    "id": 139,
+    "referencia": "Romanos 6:23",
+    "texto": "Porque la paga del pecado es muerte, más la dádiva de Dios es vida eterna en Cristo Jesús Señor nuestro.",
+    "categoria": "Gracia"
+  },
+  {
+    "id": 140,
+    "referencia": "Romanos 10:9",
+    "texto": "Que si confesares con tu boca que Jesús es el Señor, y creyeres en tu corazón que Dios le levantó de los muertos, serás salvo.",
+    "categoria": "Salvación"
+  },
+  {
+    "id": 141,
+    "referencia": "Romanos 10:17",
+    "texto": "Así que la fe es por el oír, y el oír por la palabra de Dios.",
+    "categoria": "Fe"
+  },
+  {
+    "id": 142,
+    "referencia": "Romanos 12:1",
+    "texto": "Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional.",
+    "categoria": "Consagración"
+  },
+  {
+    "id": 143,
+    "referencia": "Romanos 13:8",
+    "texto": "No debáis a nadie nada, sino el amaros unos a otros; porque el que ama al prójimo, ha cumplido la ley.",
+    "categoria": "Amor"
+  },
+  {
+    "id": 144,
+    "referencia": "1 Corintios 1:18",
+    "texto": "Porque la palabra de la cruz es locura a los que se pierden; mas a los que se salvan, esto es, a nosotros, es poder de Dios.",
+    "categoria": "Cruz"
+  },
+  {
+    "id": 145,
+    "referencia": "1 Corintios 3:16",
+    "texto": "¿No sabéis que sois templo de Dios, y que el Espíritu de Dios mora en vosotros?",
+    "categoria": "Templo del Espíritu"
+  },
+  {
+    "id": 146,
+    "referencia": "1 Corintios 6:20",
+    "texto": "Porque habéis sido comprados por precio; glorificad, pues, a Dios en vuestro cuerpo y en vuestro espíritu, los cuales son de Dios.",
+    "categoria": "Dignidad"
+  },
+  {
+    "id": 147,
+    "referencia": "1 Corintios 15:57",
+    "texto": "Mas gracias sean dadas a Dios, que nos da la victoria por medio de nuestro Señor Jesucristo.",
+    "categoria": "Victoria"
+  },
+  {
+    "id": 148,
+    "referencia": "1 Corintios 16:14",
+    "texto": "Todas vuestras cosas sean hechas con amor.",
+    "categoria": "Amor"
+  },
+  {
+    "id": 149,
+    "referencia": "2 Corintios 5:17",
+    "texto": "De modo que si alguno está en Cristo, nueva criatura es; las cosas viejas pasaron; he aquí todas son hechas nuevas.",
+    "categoria": "Renovación"
+  },
+  {
+    "id": 150,
+    "referencia": "2 Corintios 9:7",
+    "texto": "Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre.",
+    "categoria": "Generosidad"
+  },
+  {
+    "id": 151,
+    "referencia": "Gálatas 3:28",
+    "texto": "Ya no hay judío ni griego; no hay esclavo ni libre; no hay varón ni mujer; porque todos vosotros sois uno en Cristo Jesús.",
+    "categoria": "Igualdad"
+  },
+  {
+    "id": 152,
+    "referencia": "Gálatas 5:1",
+    "texto": "Estad, pues, firmes en la libertad con que Cristo nos hizo libres, y no estéis otra vez sujetos al yugo de esclavitud.",
+    "categoria": "Libertad"
+  },
+  {
+    "id": 153,
+    "referencia": "Gálatas 6:9",
+    "texto": "No nos cansemos, pues, de hacer bien; porque a su tiempo segaremos, si no desmayamos.",
+    "categoria": "Perserverancia"
+  },
+  {
+    "id": 154,
+    "referencia": "Efesios 1:3",
+    "texto": "Bendito sea el Dios y Padre de nuestro Señor Jesucristo, que nos bendijo con toda bendición espiritual en los lugares celestiales en Cristo.",
+    "categoria": "Bendición"
+  },
+  {
+    "id": 155,
+    "referencia": "Efesios 2:10",
+    "texto": "Porque somos hechura suya, creados en Cristo Jesús para buenas obras, las cuales Dios preparó de antemano para que anduviésemos en ellas.",
+    "categoria": "Propósito"
+  },
+  {
+    "id": 156,
+    "referencia": "Efesios 4:2",
+    "texto": "Con toda humildad y mansedumbre, con paciencia, soportándoos los unos a otros en amor.",
+    "categoria": "Humildad"
+  },
+  {
+    "id": 157,
+    "referencia": "Efesios 4:32",
+    "texto": "Sed benignos unos con otros, misericordiosos, perdonándoos unos a otros, como Dios también os perdonó a vosotros en Cristo.",
+    "categoria": "Perdón"
+  },
+  {
+    "id": 158,
+    "referencia": "Efesios 6:11",
+    "texto": "Vestíos de toda la armadura de Dios, para que podáis estar firmes contra las asechanzas del diablo.",
+    "categoria": "Armadura Espiritual"
+  },
+  {
+    "id": 159,
+    "referencia": "Filipenses 1:6",
+    "texto": "Estando persuadido de esto, que el que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo.",
+    "categoria": "Fidelidad"
+  },
+  {
+    "id": 160,
+    "referencia": "Filipenses 2:3",
+    "texto": "Nada hagáis por contienda o por vanagloria; antes bien con humildad, estimando cada uno a los demás como superiores a él mismo.",
+    "categoria": "Humildad"
+  },
+  {
+    "id": 161,
+    "referencia": "Filipenses 2:10",
+    "texto": "Para que en el nombre de Jesús se doble toda rodilla de los que están en los cielos, y en la tierra, y debajo de la tierra.",
+    "categoria": "Adoración"
+  },
+  {
+    "id": 162,
+    "referencia": "Filipenses 4:8",
+    "texto": "Por lo demás, hermanos, todo lo que es verdadero, todo lo honesto, todo lo justo, todo lo puro, todo lo amable, todo lo que es de buen nombre; si hay virtud alguna, si algo digno de alabanza, en esto pensad.",
+    "categoria": "Pensamientos"
+  },
+  {
+    "id": 163,
+    "referencia": "Colosenses 1:13",
+    "texto": "El cual nos ha librado de la potestad de las tinieblas, y trasladado al reino de su amado Hijo.",
+    "categoria": "Redención"
+  },
+  {
+    "id": 164,
+    "referencia": "Colosenses 3:14",
+    "texto": "Y sobre todas estas cosas vestíos de amor, que es el vínculo perfecto.",
+    "categoria": "Amor"
+  },
+  {
+    "id": 165,
+    "referencia": "Colosenses 3:15",
+    "texto": "Y la paz de Dios gobierne en vuestros corazones, a la que asimismo fuisteis llamados en un solo cuerpo; y sed agradecidos.",
+    "categoria": "Paz"
+  },
+  {
+    "id": 166,
+    "referencia": "1 Tesalonicenses 4:3",
+    "texto": "Pues la voluntad de Dios es vuestra santificación; que os apartéis de fornicación;",
+    "categoria": "Santidad"
+  },
+  {
+    "id": 167,
+    "referencia": "1 Tesalonicenses 5:18",
+    "texto": "Dad gracias en todo, porque esta es la voluntad de Dios para con vosotros en Cristo Jesús.",
+    "categoria": "Gratitud"
+  },
+  {
+    "id": 168,
+    "referencia": "2 Tesalonicenses 3:3",
+    "texto": "Pero fiel es el Señor, que os afirmará y guardará del mal.",
+    "categoria": "Fidelidad"
+  },
+  {
+    "id": 169,
+    "referencia": "1 Timoteo 2:4",
+    "texto": "El cual quiere que todos los hombres sean salvos y vengan al conocimiento de la verdad.",
+    "categoria": "Salvación"
+  },
+  {
+    "id": 170,
+    "referencia": "1 Timoteo 6:12",
+    "texto": "Pelea la buena batalla de la fe, echa mano de la vida eterna, a la cual asimismo fuiste llamado, habiendo hecho la buena profesión delante de muchos testigos.",
+    "categoria": "Batalla Espiritual"
+  },
+  {
+    "id": 171,
+    "referencia": "2 Timoteo 2:15",
+    "texto": "Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que usa bien la palabra de verdad.",
+    "categoria": "Diligencia"
+  },
+  {
+    "id": 172,
+    "referencia": "2 Timoteo 3:16",
+    "texto": "Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia.",
+    "categoria": "Escritura"
+  },
+  {
+    "id": 173,
+    "referencia": "2 Timoteo 4:7",
+    "texto": "He peleado la buena batalla, he acabado la carrera, he guardado la fe.",
+    "categoria": "Perseverancia"
+  },
+  {
+    "id": 174,
+    "referencia": "Tito 2:11",
+    "texto": "Porque la gracia de Dios se ha manifestado para salvación a todos los hombres.",
+    "categoria": "Gracia"
+  },
+  {
+    "id": 175,
+    "referencia": "Filemón 1:6",
+    "texto": "Para que la participación de tu fe sea eficaz en el conocimiento de todo el bien que está en vosotros en Cristo Jesús.",
+    "categoria": "Fe"
+  },
+  {
+    "id": 176,
+    "referencia": "Hebreos 10:23",
+    "texto": "Mantengamos firme, sin fluctuación, la profesión de nuestra esperanza, porque fiel es el que prometió.",
+    "categoria": "Esperanza"
+  },
+  {
+    "id": 177,
+    "referencia": "Hebreos 11:6",
+    "texto": "Pero sin fe es imposible agradar a Dios; porque es necesario que el que se acerca a Dios crea que le hay, y que es galardonador de los que le buscan.",
+    "categoria": "Fe"
+  },
+  {
+    "id": 178,
+    "referencia": "Hebreos 12:1",
+    "texto": "Por tanto, nosotros también, teniendo en derredor nuestro tan gran nube de testigos, despojémonos de todo peso y del pecado que nos asedia, y corramos con paciencia la carrera que tenemos por delante,",
+    "categoria": "Perseverancia"
+  },
+  {
+    "id": 179,
+    "referencia": "Hebreos 13:5",
+    "texto": "Sean vuestras costumbres sin avaricia, contentos con lo que tenéis ahora; porque él dijo: No te desampararé, ni te dejaré.",
+    "categoria": "Contentamiento"
+  },
+  {
+    "id": 180,
+    "referencia": "Santiago 1:2",
+    "texto": "Hermanos míos, tened por sumo gozo cuando os halléis en diversas tentaciones.",
+    "categoria": "Pruebas"
+  },
+  {
+    "id": 181,
+    "referencia": "Santiago 1:19",
+    "texto": "Por esto, mis amados hermanos, todo hombre sea pronto para oír, tardo para hablar, tardo para airarse.",
+    "categoria": "Sabiduría Práctica"
+  },
+  {
+    "id": 182,
+    "referencia": "Santiago 2:17",
+    "texto": "Así también la fe, si no tiene obras, es muerta en sí misma.",
+    "categoria": "Fe y Obras"
+  },
+  {
+    "id": 183,
+    "referencia": "Santiago 5:16",
+    "texto": "Confesad vuestras ofensas unos a otros, y orad unos por otros, para que seáis sanados. La oración eficaz del justo puede mucho.",
+    "categoria": "Oración"
+  },
+  {
+    "id": 184,
+    "referencia": "1 Pedro 2:9",
+    "texto": "Mas vosotros sois linaje escogido, real sacerdocio, nación santa, pueblo adquirido por Dios, para que anunciéis las virtudes de aquel que os llamó de las tinieblas a su luz admirable;",
+    "categoria": "Identidad"
+  },
+  {
+    "id": 185,
+    "referencia": "1 Pedro 4:8",
+    "texto": "Y ante todo, tened entre vosotros ferviente amor; porque el amor cubrirá multitud de pecados.",
+    "categoria": "Amor"
+  },
+  {
+    "id": 186,
+    "referencia": "2 Pedro 3:9",
+    "texto": "El Señor no retarda su promesa, según algunos la tienen por tardanza, sino que es paciente para con nosotros, no queriendo que ninguno perezca, sino que todos procedan al arrepentimiento.",
+    "categoria": "Paciencia Divina"
+  },
+  {
+    "id": 187,
+    "referencia": "1 Juan 1:9",
+    "texto": "Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados, y limpiarnos de toda maldad.",
+    "categoria": "Perdón"
+  },
+  {
+    "id": 188,
+    "referencia": "1 Juan 3:1",
+    "texto": "Mirad cuál amor nos ha dado el Padre, para que seamos llamados hijos de Dios; por esto el mundo no nos conoce, porque no le conoció a él.",
+    "categoria": "Filiación Divina"
+  },
+  {
+    "id": 189,
+    "referencia": "1 Juan 4:7",
+    "texto": "Amados, amémonos unos a otros; porque el amor es de Dios.",
+    "categoria": "Amor Fraterno"
+  },
+  {
+    "id": 190,
+    "referencia": "1 Juan 4:16",
+    "texto": "Y nosotros hemos conocido y creído el amor que Dios tiene para con nosotros. Dios es amor; y el que permanece en amor, permanece en Dios, y Dios en él.",
+    "categoria": "Amor de Dios"
+  },
+  {
+    "id": 191,
+    "referencia": "Apocalipsis 1:8",
+    "texto": "Yo soy el Alfa y la Omega, principio y fin, dice el Señor, el que es y que era y que ha de venir, el Todopoderoso.",
+    "categoria": "Soberanía"
+  },
+  {
+    "id": 192,
+    "referencia": "Génesis 1:1",
+    "texto": "En el principio creó Dios los cielos y la tierra.",
+    "categoria": "Creación"
+  },
+  {
+    "id": 193,
+    "referencia": "Génesis 12:3",
+    "texto": "Bendeciré a los que te bendijeren, y a los que te maldijeren maldeciré; y serán benditas en ti todas las familias de la tierra.",
+    "categoria": "Alianza"
+  },
+  {
+    "id": 194,
+    "referencia": "Éxodo 14:14",
+    "texto": "El Señor peleará por vosotros, y vosotros estaréis tranquilos.",
+    "categoria": "Tranquilidad"
+  },
+  {
+    "id": 195,
+    "referencia": "Éxodo 20:3",
+    "texto": "No tendrás dioses ajenos delante de mí.",
+    "categoria": "Mandamientos"
+  },
+  {
+    "id": 196,
+    "referencia": "Deuteronomio 6:5",
+    "texto": "Y amarás al Señor tu Dios de todo tu corazón, y de toda tu alma, y con todas tus fuerzas.",
+    "categoria": "Amor a Dios"
+  },
+  {
+    "id": 197,
+    "referencia": "Salmos 23:4",
+    "texto": "Aunque ande en valle de sombra de muerte, no temeré mal alguno, porque tú estarás conmigo; tu vara y tu cayado me infundirán aliento.",
+    "categoria": "Consuelo"
+  },
+  {
+    "id": 198,
+    "referencia": "Salmos 133:1",
+    "texto": "¡Mirad cuán bueno y cuán delicioso es habitar los hermanos juntos en armonía!",
+    "categoria": "Unidad"
+  },
+  {
+    "id": 199,
+    "referencia": "Isaías 43:2",
+    "texto": "Cuando pases por las aguas, yo estaré contigo; y si por los ríos, no te anegarán. Cuando pases por el fuego, no te quemarás, ni la llama arderá en ti.",
+    "categoria": "Protección"
+  },
+  {
+    "id": 200,
+    "referencia": "Proverbios 3:6",
+    "texto": "Reconocelo en todos tus caminos, y él enderezará tus sendas.",
+    "categoria": "Guía Divina"
+  }
+]
