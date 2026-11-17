@@ -153,6 +153,20 @@ body {
     padding: 1.15rem;
     margin-bottom: 1rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    text-align: left;
+    width: 100%;
+}
+
+button.misa-card {
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button.misa-card:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
 }
 
 .banner-card {

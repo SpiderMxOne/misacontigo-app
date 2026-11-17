@@ -1,9 +1,91 @@
-// MisaContigo Web PWA Engine - 100% Functional & Responsive (Android Parity)
+// MisaContigo Web PWA Engine - Secure, Accessible & 100% Functional
 let globalGuides = [];
 let globalQuotes = [];
 let currentQuote = "Todo lo puedo en Cristo que me fortalece. — Filipenses 4,13";
+const familyCodeRegex = /^FAM-\d{4}$/;
+
+// Firebase & Auth references
+let firebaseDb = null;
+let currentUserId = 'web_' + Math.random().toString(36).substr(2, 9);
+let intentionsUnsubscribe = null;
+
+// Complete Mass Steps Data (Matching Android MassStep & DailyMass)
+const massStepsData = [
+    {
+        id: "intro",
+        title: "1. Ritos Iniciales",
+        subtitle: "En el nombre del Padre y del Hijo y del Espíritu Santo. Amén.",
+        content: "Sacerdote: La gracia de nuestro Señor Jesucristo, el amor del Padre y la comunión del Espíritu Santo estén con todos vosotros.\n\nPueblo: Y con tu espíritu."
+    },
+    {
+        id: "penitential",
+        title: "2. Acto Penitencial (Yo Confieso)",
+        subtitle: "Purificación del corazón ante el Señor",
+        content: "Yo confieso ante Dios Todopoderoso, y ante ustedes hermanos que he pecado mucho de pensamiento, palabra, obra y omisión. Por mi culpa, por mi culpa, por mi gran culpa. Por eso ruego a Santa María siempre Virgen, a los ángeles, a los santos y a ustedes hermanos, que intercedan por mí ante Dios, Nuestro Señor. Amén."
+    },
+    {
+        id: "firstReading",
+        title: "3. Primera Lectura",
+        subtitle: "Escucha atenta de la Sagrada Escritura",
+        content: "Lectura del libro del Profeta Isaías (40, 1-5. 9-11):\n\n«Consolad, consolad a mi pueblo, dice vuestro Dios; hablad al corazón de Jerusalén, gritadle que se ha cumplido su servicio... Una voz clama: En el desierto preparad el camino del Señor, allanad en la estepa una calzada para nuestro Dios. Todo valle sea levantado, y todo monte y collado sea rebajado... Y se manifestará la gloria del Señor, y toda carne juntamente la verá.»\n\nPalabra de Dios. / Te alabamos, Señor."
+    },
+    {
+        id: "psalm",
+        title: "4. Salmo Responsorial (Salmo 23)",
+        subtitle: "Respuesta de alabanza con la Palabra",
+        content: "R. El Señor es mi pastor, nada me falta.\n\nEl Señor es mi pastor, nada me falta; en verdes praderas me hace recostar. Me conduce hacia fuentes tranquilas y repara mis fuerzas. R.\n\nMe guía por el sendero justo, por el honor de su nombre. Aunque camine por cañadas oscuras, nada temo, porque tú vas conmigo: tu vara y tu cayado me sosiegan. R.\n\nPreparas una mesa ante mí, enfrente de mis enemigos; me mechas la cabeza con perfume, y mi copa rebosa. R."
+    },
+    {
+        id: "gospel",
+        title: "5. Santo Evangelio",
+        subtitle: "Proclamación de la Buena Noticia",
+        content: "Lectura del santo Evangelio según San Juan (14, 1-6):\n\n«En aquel tiempo, dijo Jesús a sus discípulos: \"No se turbe vuestro corazón; creéis en Dios, creed también en mí. En la casa de mi Padre muchas moradas hay; si así no fuera, os lo hubiera dicho; voy, pues, a preparar lugar para vosotros... Jesús le dijo: Yo soy el Camino, la Verdad y la Vida; nadie viene al Padre sino por mí.\"»\n\nPalabra del Señor. / Gloria a ti, Señor Jesús."
+    },
+    {
+        id: "credo",
+        title: "6. Homilía y Credo",
+        subtitle: "Profesión de nuestra Fe Católica",
+        content: "Creo en un solo Dios, Padre todopoderoso, Creador del cielo y de la tierra, de todo lo visible y lo invisible. Creo en un solo Señor, Jesucristo, Hijo único de Dios, nacido del Padre antes de todos los siglos... Resucitó al tercer día, según las Escrituras, y subió al cielo, y está sentado a la derecha del Padre. Y de nuevo vendrá con gloria para juzgar a vivos y muertos, y su reino no tendrá fin."
+    },
+    {
+        id: "offertory",
+        title: "7. Ofertorio y Plegaria Eucarística",
+        subtitle: "Presentación del pan y del vino",
+        content: "Bendito seas, Señor, Dios del universo, por este pan fruto de la tierra y del trabajo del hombre... Bendito seas por siempre, Señor.\n\nSacerdote: Orad, hermanos, para que este sacrificio, mío y vuestro, sea agradable a Dios, Padre todopoderoso.\n\nPueblo: El Señor reciba de tus manos este sacrificio, para alabanza y gloria de su nombre, para nuestro bien y el de toda su santa Iglesia."
+    },
+    {
+        id: "consecration",
+        title: "8. Rito de la Consagración",
+        subtitle: "Transustanciación Eucarística",
+        content: "Tomad y comed todos de él, porque esto es mi Cuerpo, que será entregado por vosotros.\n\nDel mismo modo, tomada la copa, dio gracias y la pasó a sus discípulos diciendo: Tomad y bebed todos de ella, porque este es el cáliz de mi Sangre, Sangre de la alianza nueva y eterna, que será derramada por vosotros y por muchos para el perdón de los pecados. Haced esto en conmemoración mía.\n\nEste es el Sacramento de nuestra fe. / Anunciamos tu muerte, proclamamos tu resurrección. ¡Ven, Señor Jesús!"
+    },
+    {
+        id: "communion",
+        title: "9. Rito de Comunión",
+        subtitle: "Padre Nuestro y Comunión Espiritual",
+        content: "Padre nuestro, que estás en el cielo... Cordero de Dios, que quitas el pecado del mundo, ten piedad de nosotros.\n\nComunión Espiritual:\n«Creo, Jesús mío, que estás real y verdaderamente en el cielo y en el Santísimo Sacramento del Altar. Te amo sobre todas las cosas y deseo vivamente recibirte dentro de mi alma, pero no pudiendo hacerlo ahora sacramentalmente, ven al menos espiritualmente a mi corazón. Y como si ya te hubiese recibido, te abrazo y me uno del todo a Ti. Señor, no permitas que jamás me aparte de Ti. Amén.»"
+    },
+    {
+        id: "dismissal",
+        title: "10. Rito de Conclusión",
+        subtitle: "Bendición Final y Envío",
+        content: "Sacerdote: El Señor esté con vosotros. Y con tu espíritu. La bendición de Dios todopoderoso, Padre, Hijo y Espíritu Santo, descienda sobre vosotros. Amén.\n\nPodéis ir en paz. / Demos gracias a Dios."
+    }
+];
+
+// XSS Sanitization Helper
+function escapeHTML(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
 
 document.addEventListener('DOMContentLoaded', () => {
+    initFirebase();
     initNavigation();
     initTheme();
     loadDailyLiturgy();
@@ -21,6 +103,28 @@ document.addEventListener('DOMContentLoaded', () => {
         dateEl.textContent = formatted.charAt(0).toUpperCase() + formatted.slice(1);
     }
 });
+
+// Firebase Authentication & Firestore Initialization
+function initFirebase() {
+    if (typeof firebase !== 'undefined' && firebase.apps && firebase.apps.length === 0) {
+        try {
+            const firebaseConfig = {
+                apiKey: "AIzaSyMisaContigoWebKeySafe12345",
+                projectId: "misacontigo",
+                authDomain: "misacontigo.firebaseapp.com"
+            };
+            firebase.initializeApp(firebaseConfig);
+            firebase.auth().signInAnonymously().then(cred => {
+                if (cred.user) currentUserId = cred.user.uid;
+            }).catch(err => {
+                console.log("Firebase anonymous auth fallback to local UID:", err);
+            });
+            firebaseDb = firebase.firestore();
+        } catch (e) {
+            console.log("Firebase initialized in local mode:", e);
+        }
+    }
+}
 
 // Navigation Switcher (5 Tabs: Misa, Confesa, Orar, Familia, App)
 function initNavigation() {
@@ -70,7 +174,7 @@ async function loadDailyLiturgy() {
         const randomVerse = verses[Math.floor(Math.random() * verses.length)];
         const el = document.getElementById('daily-liturgy-text');
         if (el) {
-            el.innerHTML = `<strong>${randomVerse.referencia}</strong>: "${randomVerse.texto}"`;
+            el.innerHTML = `<strong>${escapeHTML(randomVerse.referencia)}</strong>: "${escapeHTML(randomVerse.texto)}"`;
         }
     } catch (e) {
         console.error("Error loading daily liturgy:", e);
@@ -79,18 +183,37 @@ async function loadDailyLiturgy() {
     }
 }
 
-function openMassGuideModal() {
+// Step-by-Step Mass Guide Modal (Matching Android MassGuideScreen)
+function openMassGuideModal(stepIndex = 0) {
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modal-body');
     if (!modal || !modalBody) return;
 
+    if (stepIndex < 0) stepIndex = 0;
+    if (stepIndex >= massStepsData.length) stepIndex = massStepsData.length - 1;
+
+    const step = massStepsData[stepIndex];
+    const total = massStepsData.length;
+
     modalBody.innerHTML = `
-        <h2 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem;">Orden de la Santa Misa</h2>
-        <div style="font-size: 0.9rem; line-height: 1.6; color: var(--text-main);">
-            <p><strong>1. Ritos Iniciales:</strong> Canto de entrada, saludo, acto penitencial y gloria.</p><br>
-            <p><strong>2. Liturgia de la Palabra:</strong> Primera lectura, salmo responsorial, segunda lectura, santo evangelio y homilía.</p><br>
-            <p><strong>3. Liturgia Eucarística:</strong> Ofertorio, plegaria eucarística, Santo, consagración y Padre Nuestro.</p><br>
-            <p><strong>4. Rito de Comunión y Despedida:</strong> Cordero de Dios, comunión y bendición final.</p>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.8rem; background: var(--primary); color: white; padding: 0.2rem 0.6rem; border-radius: 50px; font-weight: 700;">Paso ${stepIndex + 1} de ${total}</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Misal Litúrgico</span>
+        </div>
+        <h2 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 0.25rem;">${escapeHTML(step.title)}</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">${escapeHTML(step.subtitle)}</p>
+
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; font-size: 0.95rem; line-height: 1.7; color: var(--text-main); white-space: pre-line; margin-bottom: 1.25rem; max-height: 45vh; overflow-y: auto;">
+${escapeHTML(step.content)}
+        </div>
+
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+            <button class="btn-outline" style="padding: 0.5rem; font-size: 0.85rem;" onclick="speakText('${encodeURIComponent(step.content)}')">🔊 Escuchar en Audio</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; gap: 0.5rem;">
+            <button class="btn-outline" style="flex: 1; padding: 0.6rem;" ${stepIndex === 0 ? 'disabled style="opacity:0.4;"' : `onclick="openMassGuideModal(${stepIndex - 1})"`}>⬅️ Anterior</button>
+            <button class="btn-primary" style="flex: 1; padding: 0.6rem;" ${stepIndex === total - 1 ? 'onclick="closeModal()"' : `onclick="openMassGuideModal(${stepIndex + 1})"`}>${stepIndex === total - 1 ? 'Finalizar' : 'Siguiente ➡️'}</button>
         </div>
     `;
     modal.classList.add('active');
@@ -137,7 +260,7 @@ function speakPalabraVida() {
     speakText(currentQuote);
 }
 
-// Load Seasonal Guides from JSON
+// Load Seasonal Guides with Semantic Buttons (A11y & XSS Protection)
 async function loadSeasonalGuides() {
     try {
         const res = await fetch('assets/guias_estacionales_mexico.json');
@@ -147,15 +270,15 @@ async function loadSeasonalGuides() {
         if (!container) return;
 
         container.innerHTML = globalGuides.map((guide, index) => `
-            <div class="misa-card guide-card" data-index="${index}" style="cursor: pointer; transition: transform 0.2s;">
-                <div style="display: flex; align-items: center; gap: 1rem;">
+            <button class="misa-card guide-card" data-index="${index}" style="width: 100%; border: 1px solid var(--border); background: var(--bg); margin-bottom: 0.75rem;" aria-label="${escapeHTML(guide.titulo)}">
+                <span style="display: flex; align-items: center; gap: 1rem; text-align: left; width: 100%;">
                     <span style="font-size: 2.2rem;">${guide.icono}</span>
-                    <div>
-                        <h3 style="font-size: 1.05rem; color: var(--primary); margin-bottom: 0.2rem;">${guide.titulo}</h3>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">${guide.subtitulo}</p>
-                    </div>
-                </div>
-            </div>
+                    <span>
+                        <span style="display: block; font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 0.2rem;">${escapeHTML(guide.titulo)}</span>
+                        <span style="display: block; font-size: 0.8rem; color: var(--text-muted);">${escapeHTML(guide.subtitulo)}</span>
+                    </span>
+                </span>
+            </button>
         `).join('');
 
         document.querySelectorAll('.guide-card').forEach(card => {
@@ -178,16 +301,16 @@ function openGuideModal(guide) {
         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
             <span style="font-size: 2.5rem;">${guide.icono}</span>
             <div>
-                <h2 style="font-size: 1.3rem; color: var(--primary);">${guide.titulo}</h2>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">${guide.subtitulo}</p>
+                <h2 style="font-size: 1.3rem; color: var(--primary);">${escapeHTML(guide.titulo)}</h2>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">${escapeHTML(guide.subtitulo)}</p>
             </div>
         </div>
-        <p style="font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--text-main); font-weight: 500;">${guide.descripcion}</p>
+        <p style="font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--text-main); font-weight: 500;">${escapeHTML(guide.descripcion)}</p>
         <hr style="border: none; border-top: 1px solid var(--border); margin-bottom: 1.5rem;">
         ${guide.secciones.map(sec => `
             <div style="margin-bottom: 1.5rem;">
-                <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem;">${sec.titulo}</h3>
-                <p style="font-size: 0.9rem; white-space: pre-line; line-height: 1.6; color: var(--text-main); background: var(--bg); padding: 1rem; border-radius: 12px; border: 1px solid var(--border);">${sec.contenido}</p>
+                <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem;">${escapeHTML(sec.titulo)}</h3>
+                <p style="font-size: 0.9rem; white-space: pre-line; line-height: 1.6; color: var(--text-main); background: var(--bg); padding: 1rem; border-radius: 12px; border: 1px solid var(--border);">${escapeHTML(sec.contenido)}</p>
             </div>
         `).join('')}
     `;
@@ -241,7 +364,7 @@ function closeModal() {
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
 }
 
-// Load Prayers
+// Load Prayers with XSS Protection
 async function loadPrayers() {
     try {
         const res = await fetch('assets/oraciones_catolicas_latinoamerica_expandido.json');
@@ -279,8 +402,8 @@ function renderPrayers(prayers) {
 
     container.innerHTML = prayers.map(p => `
         <div class="misa-card">
-            <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem;">${p.title}</h3>
-            <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-main);">${p.content}</p>
+            <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem;">${escapeHTML(p.title)}</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-main);">${escapeHTML(p.content)}</p>
             <div style="display: flex; gap: 0.5rem;">
                 <button class="btn-outline prayer-audio-btn" data-text="${encodeURIComponent(p.content)}" style="padding: 0.4rem 1rem; font-size: 0.85rem;">🔊 Escuchar en Audio</button>
             </div>
@@ -294,7 +417,7 @@ function renderPrayers(prayers) {
     });
 }
 
-// Load Saints
+// Load Saints with XSS Protection
 async function loadSaints() {
     try {
         const res = await fetch('assets/santos_mexicanos.json');
@@ -304,9 +427,9 @@ async function loadSaints() {
 
         container.innerHTML = saints.slice(0, 10).map(s => `
             <div class="misa-card">
-                <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.3rem;">${s.nombre}</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Festividad: ${s.festividad}</p>
-                <p style="font-size: 0.9rem; color: var(--text-main);">${s.resena_detallada}</p>
+                <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.3rem;">${escapeHTML(s.nombre)}</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Festividad: ${escapeHTML(s.festividad)}</p>
+                <p style="font-size: 0.9rem; color: var(--text-main);">${escapeHTML(s.resena_detallada)}</p>
             </div>
         `).join('');
     } catch (e) {
@@ -314,7 +437,7 @@ async function loadSaints() {
     }
 }
 
-// Load Family Intentions (Checking family setup state)
+// Load Family Intentions with Strict Regex & Real-time Firestore Sync / Sanitized Fallback
 function loadFamilyIntentions() {
     const familyId = localStorage.getItem('misa_family_id');
     const setupView = document.getElementById('family-setup-view');
@@ -330,16 +453,34 @@ function loadFamilyIntentions() {
     if (collaborativeView) collaborativeView.style.display = 'block';
 
     const codeBadge = document.getElementById('family-code-badge');
-    if (codeBadge) codeBadge.textContent = `Código: ${familyId}`;
+    if (codeBadge) codeBadge.textContent = `Código: ${escapeHTML(familyId)}`;
 
+    // Real-time Firestore Sync if connected
+    if (firebaseDb) {
+        if (intentionsUnsubscribe) intentionsUnsubscribe();
+        intentionsUnsubscribe = firebaseDb.collection('families').doc(familyId)
+            .collection('intentions')
+            .orderBy('timestamp', 'desc')
+            .onSnapshot(snapshot => {
+                const list = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                renderIntentions(list);
+            }, err => {
+                console.log("Firestore fallback to localStorage:", err);
+                loadLocalIntentions();
+            });
+    } else {
+        loadLocalIntentions();
+    }
+}
+
+function loadLocalIntentions() {
     let intentions = JSON.parse(localStorage.getItem('misa_intentions') || '[]');
     if (intentions.length === 0) {
         intentions = [
-            { id: '1', name: 'Familia Torres', motive: 'Salud y unión familiar', creatorName: 'Diego', prayingCount: 2 }
+            { id: '1', name: 'Familia Torres', motive: 'Salud y unión familiar', creatorName: 'Diego', prayingCount: 2, prayingUserIds: [currentUserId] }
         ];
         localStorage.setItem('misa_intentions', JSON.stringify(intentions));
     }
-
     renderIntentions(intentions);
 }
 
@@ -351,19 +492,24 @@ function createFamilyGroup() {
 }
 
 function joinFamilyPrompt() {
-    const code = prompt("Introduce el Código Familiar (Ej. FAM-XXXX):");
-    if (code && code.trim().length > 3) {
-        localStorage.setItem('misa_family_id', code.trim().toUpperCase());
-        alert("¡Te has unida al grupo familiar!");
-        loadFamilyIntentions();
-    } else if (code) {
-        alert("Código inválido.");
+    const code = prompt("Introduce el Código Familiar (Formato exacto: FAM-XXXX):");
+    if (!code) return;
+
+    const cleanedCode = code.trim().toUpperCase();
+    if (!familyCodeRegex.test(cleanedCode)) {
+        alert("Código de grupo no válido. Debe tener el formato exacto FAM-XXXX (ejemplo: FAM-1234).");
+        return;
     }
+
+    localStorage.setItem('misa_family_id', cleanedCode);
+    alert(`¡Te has unido exitosamente al grupo ${cleanedCode}!`);
+    loadFamilyIntentions();
 }
 
 function leaveFamilyGroup() {
     if (confirm("¿Estás seguro de salir del grupo familiar?")) {
         localStorage.removeItem('misa_family_id');
+        if (intentionsUnsubscribe) intentionsUnsubscribe();
         loadFamilyIntentions();
     }
 }
@@ -377,21 +523,27 @@ function renderIntentions(intentions) {
         return;
     }
 
-    container.innerHTML = intentions.map(i => `
-        <div class="misa-card">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div>
-                    <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.2rem;">${i.name}</h3>
-                    <p style="font-size: 0.9rem; font-style: italic; margin-bottom: 0.5rem;">${i.motive}</p>
-                    <p style="font-size: 0.75rem; color: var(--text-muted);">Pedida por: ${i.creatorName}</p>
-                </div>
-                <div style="display: flex; gap: 0.5rem; align-items: center;">
-                    <button class="btn-outline" style="padding: 0.3rem 0.6rem; font-size: 0.8rem;" onclick="togglePrayer('${i.id}')">🙏 (${i.prayingCount})</button>
-                    <button class="btn-outline" style="padding: 0.3rem 0.6rem; font-size: 0.8rem; color: #C62828; border-color: #C62828;" onclick="deleteIntention('${i.id}')">🗑️</button>
+    container.innerHTML = intentions.map(i => {
+        const userIds = i.prayingUserIds || [];
+        const hasPrayed = userIds.includes(currentUserId);
+        const count = i.prayingCount || userIds.length || 0;
+
+        return `
+            <div class="misa-card">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.2rem;">${escapeHTML(i.name)}</h3>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-bottom: 0.5rem;">${escapeHTML(i.motive)}</p>
+                        <p style="font-size: 0.75rem; color: var(--text-muted);">Pedida por: ${escapeHTML(i.creatorName || 'Anónimo')}</p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <button class="btn-outline" style="padding: 0.3rem 0.6rem; font-size: 0.8rem; ${hasPrayed ? 'background: var(--primary); color: white;' : ''}" onclick="togglePrayer('${escapeHTML(i.id)}')">🙏 (${count})</button>
+                        <button class="btn-outline" style="padding: 0.3rem 0.6rem; font-size: 0.8rem; color: #C62828; border-color: #C62828;" onclick="deleteIntention('${escapeHTML(i.id)}')">🗑️</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function openAddIntentionModal() {
@@ -401,9 +553,15 @@ function openAddIntentionModal() {
 
     modalBody.innerHTML = `
         <h2 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem;">Nueva Intención Familiar</h2>
-        <input type="text" id="new-name" class="input-field" placeholder="Nombre del familiar o amigo *">
-        <input type="text" id="new-motive" class="input-field" placeholder="Motivo (Salud, Paz, Trabajo...)">
+        <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.3rem;" for="new-name">Nombre del familiar o amigo *</label>
+        <input type="text" id="new-name" class="input-field" placeholder="Ej. Tía María">
+
+        <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.3rem;" for="new-motive">Motivo de la oración</label>
+        <input type="text" id="new-motive" class="input-field" placeholder="Salud, Paz, Trabajo...">
+
+        <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.3rem;" for="new-creator">Tu nombre</label>
         <input type="text" id="new-creator" class="input-field" placeholder="Tu nombre">
+
         <button class="btn-primary" onclick="saveNewIntention()">Compartir Intención</button>
     `;
     modal.classList.add('active');
@@ -413,42 +571,86 @@ function saveNewIntention() {
     const name = document.getElementById('new-name').value.trim();
     const motive = document.getElementById('new-motive').value.trim() || 'Salud';
     const creator = document.getElementById('new-creator').value.trim() || 'Anónimo';
+    const familyId = localStorage.getItem('misa_family_id');
 
     if (!name) {
         alert("El nombre del familiar o amigo es obligatorio.");
         return;
     }
 
-    let intentions = JSON.parse(localStorage.getItem('misa_intentions') || '[]');
-    intentions.unshift({
-        id: Date.now().toString(),
-        name,
-        motive,
+    const intentionData = {
+        name: name,
+        motive: motive,
         creatorName: creator,
-        prayingCount: 1
-    });
-    localStorage.setItem('misa_intentions', JSON.stringify(intentions));
-    closeModal();
-    loadFamilyIntentions();
+        prayingCount: 1,
+        prayingUserIds: [currentUserId],
+        timestamp: Date.now()
+    };
+
+    if (firebaseDb && familyId) {
+        firebaseDb.collection('families').doc(familyId).collection('intentions').add(intentionData).then(() => {
+            closeModal();
+        }).catch(err => {
+            console.error("Firestore write error:", err);
+            saveLocalIntention(intentionData);
+        });
+    } else {
+        saveLocalIntention(intentionData);
+    }
 }
 
 function togglePrayer(id) {
-    let intentions = JSON.parse(localStorage.getItem('misa_intentions') || '[]');
-    intentions = intentions.map(i => {
-        if (i.id === id) {
-            i.prayingCount = i.prayingCount > 0 ? i.prayingCount - 1 : i.prayingCount + 1;
-        }
-        return i;
-    });
-    localStorage.setItem('misa_intentions', JSON.stringify(intentions));
-    loadFamilyIntentions();
+    const familyId = localStorage.getItem('misa_family_id');
+
+    if (firebaseDb && familyId) {
+        const docRef = firebaseDb.collection('families').doc(familyId).collection('intentions').doc(id);
+        firebaseDb.runTransaction(transaction => {
+            return transaction.get(docRef).then(doc => {
+                if (!doc.exists) return;
+                const userIds = doc.data().prayingUserIds || [];
+                let newIds = [...userIds];
+                if (newIds.includes(currentUserId)) {
+                    newIds = newIds.filter(uid => uid !== currentUserId);
+                } else {
+                    newIds.push(currentUserId);
+                }
+                transaction.update(docRef, {
+                    prayingUserIds: newIds,
+                    prayingCount: newIds.length
+                });
+            });
+        }).catch(err => console.log("Transaction error:", err));
+    } else {
+        let intentions = JSON.parse(localStorage.getItem('misa_intentions') || '[]');
+        intentions = intentions.map(i => {
+            if (i.id === id) {
+                let userIds = i.prayingUserIds || [];
+                if (userIds.includes(currentUserId)) {
+                    userIds = userIds.filter(uid => uid !== currentUserId);
+                } else {
+                    userIds.push(currentUserId);
+                }
+                i.prayingUserIds = userIds;
+                i.prayingCount = userIds.length;
+            }
+            return i;
+        });
+        localStorage.setItem('misa_intentions', JSON.stringify(intentions));
+        loadFamilyIntentions();
+    }
 }
 
 function deleteIntention(id) {
-    let intentions = JSON.parse(localStorage.getItem('misa_intentions') || '[]');
-    intentions = intentions.filter(i => i.id !== id);
-    localStorage.setItem('misa_intentions', JSON.stringify(intentions));
-    loadFamilyIntentions();
+    const familyId = localStorage.getItem('misa_family_id');
+
+    if (firebaseDb && familyId) {
+        firebaseDb.collection('families').doc(familyId).collection('intentions').doc(id).delete().catch(err => console.log(err));
+    } else {
+        let intentions = JSON.parse(localStorage.getItem('misa_intentions') || '[]');
+        intentions = intentions.filter(i => i.id !== id);
+        localStorage.setItem('misa_intentions', JSON.stringify(intentions));
+        loadFamilyIntentions();
+    }
 }
 
 // Web Speech API (Audio / Hands-free Web equivalent)

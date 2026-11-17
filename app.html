@@ -11,6 +11,10 @@
     <link rel="apple-touch-icon" href="icon-512.png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDKs for Real-time Family Circle Sync -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,7 +44,7 @@
                     <span style="font-size: 0.75rem; background: var(--bg); padding: 0.2rem 0.5rem; border-radius: 6px; font-weight: 600; color: var(--primary);">Misal CEM</span>
                 </div>
                 <p id="daily-liturgy-text" style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 0.75rem;">Cargando lecturas litúrgicas oficiales...</p>
-                <button class="btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;" onclick="openMassGuideModal()">Ver Orden de la Misa</button>
+                <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="openMassGuideModal(0)">📖 Iniciar Guía Completa de la Misa</button>
             </div>
 
             <!-- Spiritual Streak Card -->
@@ -66,16 +70,16 @@
                 </div>
             </div>
 
-            <!-- Pilgrim Path Card -->
-            <div class="misa-card" style="background: rgba(57, 73, 171, 0.08); cursor: pointer;" onclick="openPilgrimModal()">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <div>
-                        <h3 style="font-size: 1rem; color: var(--primary);">Mi Camino del Peregrino</h3>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">Ver tu nivel, puntos y frutos espirituales</p>
-                    </div>
+            <!-- Pilgrim Path Card (Semantic button for A11y) -->
+            <button class="misa-card" style="background: rgba(57, 73, 171, 0.08); width: 100%; border: 1px solid var(--border);" onclick="openPilgrimModal()" aria-label="Ver Camino del Peregrino">
+                <span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                    <span style="text-align: left;">
+                        <span style="display: block; font-size: 1rem; font-weight: 700; color: var(--primary);">Mi Camino del Peregrino</span>
+                        <span style="display: block; font-size: 0.8rem; color: var(--text-muted);">Ver tu nivel, puntos y frutos espirituales</span>
+                    </span>
                     <span style="font-size: 1.5rem;">🏆</span>
-                </div>
-            </div>
+                </span>
+            </button>
 
             <h3 class="section-title">Tiempos y Fiestas de México</h3>
             <div id="seasonal-guides-container">
